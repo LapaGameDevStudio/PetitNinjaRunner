@@ -1,0 +1,22 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Dossiers générés automatiquement par Godot
+.import/
+.cache/
+
+# Fichiers d'export
+export.cfg
+export_presets.cfg
+
+# Fichiers temporaires et inutiles
+*.tmp
+*.log
+*.import
+*.converted.*
+
+# Mac / Windows / Linux spécifiques
+.DS_Store
+Thumbs.db
+
