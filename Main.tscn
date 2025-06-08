@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=3 uid="uid://ylhuny8rcjou"]
+
+[ext_resource type="Texture2D" uid="uid://dpq1f87t4fvf8" path="res://ninja.png" id="1_glv2v"]
+[ext_resource type="Script" uid="uid://cb56fhvev7ydq" path="res://player.gd" id="1_r0du0"]
+[ext_resource type="Texture2D" uid="uid://b5i7tr57hj00i" path="res://sol.png" id="2_uu6xs"]
+[ext_resource type="AudioStream" uid="uid://bh86yxu1ymavq" path="res://jump sound/cartoon-jump-6462.mp3" id="3_cm0pq"]
+[ext_resource type="Script" uid="uid://dg16iukt7hhjn" path="res://obstacle.gd" id="5_3dxm6"]
+[ext_resource type="Texture2D" uid="uid://dnjk00klm8rhg" path="res://bombe.png" id="5_fos0i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uu6xs"]
+size = Vector2(31, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0du0"]
+size = Vector2(1146.5, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fos0i"]
+
+[node name="Main" type="Node2D"]
+position = Vector2(553, 288)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_r0du0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(-363, -15)
+scale = Vector2(0.0714286, 0.0432)
+texture = ExtResource("1_glv2v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-364, -13)
+shape = SubResource("RectangleShape2D_uu6xs")
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("3_cm0pq")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+position = Vector2(145.5, 34)
+scale = Vector2(3.03073, 0.0341297)
+texture = ExtResource("2_uu6xs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(155, 33)
+shape = SubResource("RectangleShape2D_r0du0")
+one_way_collision_margin = 100.0
+debug_color = Color(0, 0.6, 0.701961, 0.0823529)
+
+[node name="Obstacle" type="StaticBody2D" parent="."]
+script = ExtResource("5_3dxm6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle"]
+position = Vector2(-205, 9)
+scale = Vector2(0.350746, 0.34127)
+texture = ExtResource("5_fos0i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle"]
+position = Vector2(-204, 8)
+shape = SubResource("RectangleShape2D_fos0i")
