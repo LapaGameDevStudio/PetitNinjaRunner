@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ylhuny8rcjou"]
+[gd_scene load_steps=12 format=3 uid="uid://ylhuny8rcjou"]
 
 [ext_resource type="Texture2D" uid="uid://dpq1f87t4fvf8" path="res://ninja.png" id="1_glv2v"]
 [ext_resource type="Script" uid="uid://cb56fhvev7ydq" path="res://player.gd" id="1_r0du0"]
@@ -6,6 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://bh86yxu1ymavq" path="res://jump sound/cartoon-jump-6462.mp3" id="3_cm0pq"]
 [ext_resource type="Script" uid="uid://dg16iukt7hhjn" path="res://obstacle.gd" id="5_3dxm6"]
 [ext_resource type="Texture2D" uid="uid://dnjk00klm8rhg" path="res://bombe.png" id="5_fos0i"]
+[ext_resource type="Script" uid="uid://dbsob4dpeawjh" path="res://obstacle_spawner.gd" id="7_lgr22"]
+[ext_resource type="PackedScene" uid="uid://bmkb3dqblkbyj" path="res://Obstacle.tscn" id="8_trn2v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uu6xs"]
 size = Vector2(31, 32)
@@ -57,3 +59,7 @@ texture = ExtResource("5_fos0i")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle"]
 position = Vector2(-204, 8)
 shape = SubResource("RectangleShape2D_fos0i")
+
+[node name="ObstacleSpawner" type="Node2D" parent="."]
+script = ExtResource("7_lgr22")
+obstacle_scene = ExtResource("8_trn2v")
