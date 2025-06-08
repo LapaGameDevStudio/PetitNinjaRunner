@@ -1,11 +1,9 @@
 extends StaticBody2D
 
-# Vitesse de déplacement vers la gauche (en pixels/seconde)
-const SPEED = 100
+const SPEED = 200
 
 func _process(delta):
 	position.x -= SPEED * delta
-	
-	# Si l'obstacle est complètement hors écran à gauche, on le supprime
-	if position.x < -100:
+
+	if position.x < -1000:
 		queue_free()
