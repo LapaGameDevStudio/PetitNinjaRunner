@@ -2,8 +2,9 @@ extends CharacterBody2D
 
 const GRAVITY = 1000.0
 const JUMP_FORCE = -500.0
-const SPEED = 150.0
+const SPEED = 300.0
 
+signal game_over
 
 func _physics_process(delta):
 	velocity.y += GRAVITY * delta
@@ -20,10 +21,10 @@ func _physics_process(delta):
 	var collision = get_last_slide_collision()
 	if collision:
 		var collider = collision.get_collider()
-		if collider and collider.is_in_group("obstacles"):
+		if collider and (collider.is_in_group("obstacles") or collider.is_in_group("DeathZone")):
 			bye_bye_amigo()
 
 func bye_bye_amigo():
-	var game_over_ui = get_tree().get_root().get_node("Main/GameOver_UI")  # Adjust path as needed
-	game_over_ui.visible = true
-	get_tree().paused = true
+	print("YOU ARE DEAD PITCHOO")
+	$"../GameOver_UI/GameOverSound".play()
+	emit_signal("game_over")
