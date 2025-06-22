@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmkb3dqblkbyj"]
+[gd_scene load_steps=4 format=3 uid="uid://xkjq3md2s83p"]
 
-[ext_resource type="Texture2D" uid="uid://djhfcurw7hlbd" path="res://bombe.png" id="1_nfn2k"]
-[ext_resource type="Script" uid="uid://dg16iukt7hhjn" path="res://obstacle.gd" id="1_qaun2"]
+[ext_resource type="Texture2D" uid="uid://dnjk00klm8rhg" path="res://bombe.png" id="1_nfn2k"]
+[ext_resource type="Script" path="res://obstacle.gd" id="1_qaun2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qaun2"]
 size = Vector2(74, 67)

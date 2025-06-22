@@ -8,13 +8,15 @@ var score_timer := 0.0
 var is_game_over := false
 
 func _ready():
+	var ninja = $NinjaEnemy
+	var player = $Player
+	ninja.player = player
 	$DeathZone.add_to_group("DeathZone")
 	game_over_ui.visible = false
 	game_over_ui.process_mode = Node.PROCESS_MODE_ALWAYS
 	score = 0
 	score_label.text = "Score: %d" % score
 
-	var player = $Player
 	player.connect("game_over", Callable(self, "_on_game_over"))
 
 func _process(delta):
