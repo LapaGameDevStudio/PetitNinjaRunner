@@ -9,7 +9,16 @@ func set_direction(dir: int):
 
 func _ready():
 	print("🟢 Flèche créée à : ", global_position)
+	connect("body_entered", Callable(self, "_on_body_entered"))
 
 func _process(delta):
 	global_position += velocity * delta
-	print("Flèche position:", global_position)  # Pour debug si tu veux
+
+func _on_body_entered(body):
+	if body.is_in_group("player"):
+		print("🎯 Flèche a touché le joueur !")
+		# Si le joueur a une méthode "take_damage", tu peux l'appeler ici :
+		# body.take_damage(10)
+		if body.has_method("take_damage"):
+			body.take_damage(20)
+	queue_free()
