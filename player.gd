@@ -42,6 +42,8 @@ func bye_bye_amigo():
 	print("YOU ARE DEAD PITCHOO")
 	$AnimatedSprite2D.animation = "DEATH"
 	$AnimatedSprite2D.play()
+	
+	$"../GameOver_UI/GameOverSound".play()
 		# Delay game over until animation finishes
 	var anim_length = $AnimatedSprite2D.sprite_frames.get_frame_count("DEATH") / $AnimatedSprite2D.sprite_frames.get_animation_speed("DEATH")
 	await get_tree().create_timer(anim_length).timeout
