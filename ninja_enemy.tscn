@@ -1,9 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://d2h5i6nibvp"]
+[gd_scene load_steps=29 format=3 uid="uid://d2h5i6nibvp"]
 
-[ext_resource type="Texture2D" uid="uid://b8p3dby2pkmwv" path="res://Assets/Sprites/Enemy/Samurai_Archer/Shot.png" id="1_c0qd7"]
+[ext_resource type="Texture2D" uid="uid://bpy6euv44dm7b" path="res://Assets/Sprites/Enemy/Samurai_Archer/Shot.png" id="1_c0qd7"]
 [ext_resource type="Script" uid="uid://cjahnrvqbyl8n" path="res://ninja_enemy.gd" id="1_ljjlk"]
-[ext_resource type="PackedScene" uid="uid://3qv5g8wax7d5" path="res://EnemyArrow.tscn" id="2_5mj5k"]
-[ext_resource type="Texture2D" uid="uid://ci7ticbxebvnb" path="res://Assets/Sprites/Enemy/Samurai_Archer/Idle.png" id="2_ljjlk"]
+[ext_resource type="Texture2D" uid="uid://1e5c2s2gjtuk" path="res://Assets/Sprites/Enemy/Samurai_Archer/Idle.png" id="2_ljjlk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5mj5k"]
 atlas = ExtResource("1_c0qd7")
@@ -184,21 +183,21 @@ size = Vector2(34, 69)
 
 [node name="NinjaEnemy" type="Node2D"]
 script = ExtResource("1_ljjlk")
-EnemyArrow = ExtResource("2_5mj5k")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(130, -8)
+position = Vector2(155, -19)
 sprite_frames = SubResource("SpriteFrames_fbevd")
 animation = &"ATTACK"
 frame = 8
 frame_progress = 0.489427
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(131, 20.5)
+position = Vector2(156, 9.5)
 shape = SubResource("RectangleShape2D_45cmg")
 
 [node name="ArrowSpawnPoint" type="Marker2D" parent="CharacterBody2D"]
+position = Vector2(185, -8)
 
 [node name="ThrowTimer" type="Timer" parent="."]
