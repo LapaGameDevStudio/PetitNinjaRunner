@@ -1,19 +1,19 @@
 [gd_scene load_steps=51 format=3 uid="uid://ylhuny8rcjou"]
 
 [ext_resource type="Script" uid="uid://cb56fhvev7ydq" path="res://player.gd" id="1_r0du0"]
-[ext_resource type="Script" uid="uid://boosyb3tjdh6" path="res://main.gd" id="1_trn2v"]
-[ext_resource type="AudioStream" uid="uid://bowmvx3b58t5r" path="res://Assets/Sounds/jump sound/cartoon-jump-6462.mp3" id="4_03owx"]
-[ext_resource type="Texture2D" uid="uid://bvy5d7fhbkdcu" path="res://Assets/Sprites/Player/Samurai/Dead.png" id="4_20pc6"]
-[ext_resource type="Texture2D" uid="uid://crw3r7p8ox1dg" path="res://Assets/Sprites/Player/Samurai/Idle.png" id="4_wkp8b"]
-[ext_resource type="Texture2D" uid="uid://bg8rr8msiynpl" path="res://Assets/Sprites/Player/Samurai/Run.png" id="5_20pc6"]
-[ext_resource type="Texture2D" uid="uid://dm4ceeqj0v88c" path="res://Assets/Sprites/Player/Samurai/Jump.png" id="6_5vvyt"]
+[ext_resource type="Script" path="res://main.gd" id="1_trn2v"]
+[ext_resource type="AudioStream" uid="uid://cj30vd233jb3r" path="res://Assets/Sounds/jump sound/cartoon-jump-6462.mp3" id="4_03owx"]
+[ext_resource type="Texture2D" uid="uid://cuqgbkqgm41pc" path="res://Assets/Sprites/Player/Samurai/Dead.png" id="4_20pc6"]
+[ext_resource type="Texture2D" uid="uid://chmlucltd8hnc" path="res://Assets/Sprites/Player/Samurai/Idle.png" id="4_wkp8b"]
+[ext_resource type="Texture2D" uid="uid://dgsq0xbhr1kwt" path="res://Assets/Sprites/Player/Samurai/Run.png" id="5_20pc6"]
+[ext_resource type="Texture2D" uid="uid://e1rt8vfgx41a" path="res://Assets/Sprites/Player/Samurai/Jump.png" id="6_5vvyt"]
 [ext_resource type="Script" uid="uid://dbsob4dpeawjh" path="res://obstacle_spawner.gd" id="7_lgr22"]
-[ext_resource type="Texture2D" uid="uid://d3jlsgpua3hld" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_01.png" id="8_c2ibq"]
+[ext_resource type="Texture2D" uid="uid://dcyq283hvmqsx" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_01.png" id="8_c2ibq"]
 [ext_resource type="PackedScene" uid="uid://bmkb3dqblkbyj" path="res://Obstacle.tscn" id="8_trn2v"]
-[ext_resource type="AudioStream" uid="uid://dwgn61jcagps6" path="res://Assets/Sounds/GameOver_Sound/080047_lose_funny_retro_video-game-80925.mp3" id="9_03owx"]
-[ext_resource type="Texture2D" uid="uid://kir1ipqxrtnn" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_02.png" id="9_j4qnp"]
-[ext_resource type="Texture2D" uid="uid://so5gphx3khey" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_42.png" id="10_fpfj3"]
-[ext_resource type="AudioStream" uid="uid://tnug3p0bw4s8" path="res://Assets/Sounds/Background/background-music-for-mobile-casual-video-game-short-8-bit-music-164703.ogg" id="13_c2ibq"]
+[ext_resource type="AudioStream" uid="uid://74y4kwg82jb5" path="res://Assets/Sounds/GameOver_Sound/080047_lose_funny_retro_video-game-80925.mp3" id="9_03owx"]
+[ext_resource type="Texture2D" uid="uid://b4y2s1io7oxnn" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_02.png" id="9_j4qnp"]
+[ext_resource type="Texture2D" uid="uid://di4cmymjytcqx" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_42.png" id="10_fpfj3"]
+[ext_resource type="AudioStream" uid="uid://dpceraqoja61m" path="res://Assets/Sounds/Background/background-music-for-mobile-casual-video-game-short-8-bit-music-164703.ogg" id="13_c2ibq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uu6xs"]
 size = Vector2(48.4999, 69)
@@ -294,7 +294,6 @@ script = ExtResource("1_r0du0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(-473.25, -7.5)
 shape = SubResource("RectangleShape2D_uu6xs")
-metadata/_edit_group_ = true
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="Player"]
 stream = ExtResource("4_03owx")
@@ -308,8 +307,7 @@ position = Vector2(-450, -40)
 scale = Vector2(1.08594, 1.0625)
 sprite_frames = SubResource("SpriteFrames_sc1dx")
 animation = &"RUNNING"
-frame_progress = 0.23754
-metadata/_edit_group_ = true
+frame_progress = 0.557196
 
 [node name="Ground" type="StaticBody2D" parent="."]
 
