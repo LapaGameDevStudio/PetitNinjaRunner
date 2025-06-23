@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://ylhuny8rcjou"]
+[gd_scene load_steps=55 format=3 uid="uid://ylhuny8rcjou"]
 
 [ext_resource type="Script" uid="uid://cb56fhvev7ydq" path="res://player.gd" id="1_r0du0"]
 [ext_resource type="Script" uid="uid://boosyb3tjdh6" path="res://main.gd" id="1_trn2v"]
@@ -9,8 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://e1rt8vfgx41a" path="res://Assets/Sprites/Player/Samurai/Jump.png" id="6_5vvyt"]
 [ext_resource type="Texture2D" uid="uid://dcyq283hvmqsx" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_01.png" id="8_c2ibq"]
 [ext_resource type="AudioStream" uid="uid://74y4kwg82jb5" path="res://Assets/Sounds/GameOver_Sound/080047_lose_funny_retro_video-game-80925.mp3" id="9_03owx"]
+[ext_resource type="AudioStream" uid="uid://c1hwx75tgqn3a" path="res://Assets/Sounds/Hurt/ough-47202.mp3" id="9_fpfj3"]
 [ext_resource type="Texture2D" uid="uid://b4y2s1io7oxnn" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_02.png" id="9_j4qnp"]
 [ext_resource type="Texture2D" uid="uid://di4cmymjytcqx" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_42.png" id="10_fpfj3"]
+[ext_resource type="Script" uid="uid://b753x4kfttdfm" path="res://camera_2d.gd" id="10_sc1dx"]
 [ext_resource type="Texture2D" uid="uid://csbajrl2km4ox" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_50.png" id="11_j4qnp"]
 [ext_resource type="AudioStream" uid="uid://dpceraqoja61m" path="res://Assets/Sounds/Background/background-music-for-mobile-casual-video-game-short-8-bit-music-164703.ogg" id="13_c2ibq"]
 [ext_resource type="PackedScene" uid="uid://d2h5i6nibvp" path="res://ninja_enemy.tscn" id="14_c2ibq"]
@@ -296,6 +298,9 @@ sources/3 = SubResource("TileSetAtlasSource_fpfj3")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_trn2v"]
 distance = -430.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fpfj3"]
+bg_color = Color(0, 1, 0, 1)
+
 [node name="Main" type="Node2D"]
 position = Vector2(553, 292)
 script = ExtResource("1_trn2v")
@@ -307,19 +312,27 @@ script = ExtResource("1_r0du0")
 position = Vector2(-473.25, -7.5)
 shape = SubResource("RectangleShape2D_uu6xs")
 
-[node name="JumpSound" type="AudioStreamPlayer2D" parent="Player"]
-stream = ExtResource("4_03owx")
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-limit_smoothed = true
-position_smoothing_enabled = true
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 position = Vector2(-450, -40)
 scale = Vector2(1.08594, 1.0625)
 sprite_frames = SubResource("SpriteFrames_sc1dx")
 animation = &"RUNNING"
 frame_progress = 0.728678
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("4_03owx")
+
+[node name="GameOverSound" type="AudioStreamPlayer2D" parent="Player"]
+position = Vector2(-553, -292)
+stream = ExtResource("9_03owx")
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("9_fpfj3")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+limit_smoothed = true
+position_smoothing_enabled = true
+script = ExtResource("10_sc1dx")
 
 [node name="Ground" type="StaticBody2D" parent="."]
 
@@ -367,9 +380,6 @@ action_mode = 0
 text = "RESTART PITCHO ?"
 metadata/_edit_use_anchors_ = true
 
-[node name="GameOverSound" type="AudioStreamPlayer2D" parent="GameOver_UI"]
-stream = ExtResource("9_03owx")
-
 [node name="DeathZone" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
@@ -386,6 +396,20 @@ offset_top = 33.0
 offset_right = -73.896
 offset_bottom = -490.584
 text = "SCORE : 0"
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+offset_right = 125.0
+offset_bottom = 27.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_fpfj3")
+step = 1.0
+value = 100.0
+show_percentage = false
+
+[node name="HealthValue" type="Label" parent="CanvasLayer"]
+offset_left = 126.0
+offset_top = 2.0
+offset_right = 193.0
+offset_bottom = 25.0
 
 [node name="NinjaEnemy" parent="." instance=ExtResource("14_c2ibq")]
 position = Vector2(334, -26)
