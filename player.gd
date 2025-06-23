@@ -5,6 +5,21 @@ const SPEED = 300.0
 
 signal game_over
 var is_dead = false
+@export var max_health: int = 100
+var current_health: int = max_health
+
+func take_damage(amount: int):
+	if is_dead:
+		return  # Ignore damage when already dead
+
+	current_health -= amount
+	print("💔 Player took", amount, "damage. Remaining:", current_health)
+
+	if current_health <= 0:
+		bye_bye_amigo()
+
+func _ready():
+	add_to_group("player")
 
 func _physics_process(delta):
 	if is_dead:
