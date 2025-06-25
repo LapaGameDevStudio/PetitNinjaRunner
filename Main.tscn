@@ -1,20 +1,23 @@
-[gd_scene load_steps=55 format=3 uid="uid://ylhuny8rcjou"]
+[gd_scene load_steps=58 format=3 uid="uid://ylhuny8rcjou"]
 
 [ext_resource type="Script" uid="uid://cb56fhvev7ydq" path="res://player.gd" id="1_r0du0"]
 [ext_resource type="Script" uid="uid://boosyb3tjdh6" path="res://main.gd" id="1_trn2v"]
-[ext_resource type="AudioStream" uid="uid://cj30vd233jb3r" path="res://Assets/Sounds/jump sound/cartoon-jump-6462.mp3" id="4_03owx"]
-[ext_resource type="Texture2D" uid="uid://cuqgbkqgm41pc" path="res://Assets/Sprites/Player/Samurai/Dead.png" id="4_20pc6"]
-[ext_resource type="Texture2D" uid="uid://chmlucltd8hnc" path="res://Assets/Sprites/Player/Samurai/Idle.png" id="4_wkp8b"]
-[ext_resource type="Texture2D" uid="uid://dgsq0xbhr1kwt" path="res://Assets/Sprites/Player/Samurai/Run.png" id="5_20pc6"]
-[ext_resource type="Texture2D" uid="uid://e1rt8vfgx41a" path="res://Assets/Sprites/Player/Samurai/Jump.png" id="6_5vvyt"]
-[ext_resource type="Texture2D" uid="uid://dcyq283hvmqsx" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_01.png" id="8_c2ibq"]
-[ext_resource type="AudioStream" uid="uid://74y4kwg82jb5" path="res://Assets/Sounds/GameOver_Sound/080047_lose_funny_retro_video-game-80925.mp3" id="9_03owx"]
-[ext_resource type="AudioStream" uid="uid://c1hwx75tgqn3a" path="res://Assets/Sounds/Hurt/ough-47202.mp3" id="9_fpfj3"]
-[ext_resource type="Texture2D" uid="uid://b4y2s1io7oxnn" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_02.png" id="9_j4qnp"]
-[ext_resource type="Texture2D" uid="uid://di4cmymjytcqx" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_42.png" id="10_fpfj3"]
+[ext_resource type="Texture2D" uid="uid://d2rm5ddvlxtuf" path="res://Assets/Sprites/BackGround/game_background_1/layers/clouds_2.png" id="2_sc1dx"]
+[ext_resource type="Texture2D" uid="uid://cjm42tujrf273" path="res://Assets/Sprites/BackGround/game_background_3/layers/ground_3.png" id="3_5tuhn"]
+[ext_resource type="Texture2D" uid="uid://hqe823quandt" path="res://Assets/Sprites/BackGround/game_background_3/layers/ground_1.png" id="4_2gh4u"]
+[ext_resource type="AudioStream" uid="uid://ntggrxf157tr" path="res://Assets/Sounds/jump sound/cartoon-jump-6462.mp3" id="4_03owx"]
+[ext_resource type="Texture2D" uid="uid://bej76oq3v6pa7" path="res://Assets/Sprites/Player/Samurai/Dead.png" id="4_20pc6"]
+[ext_resource type="Texture2D" uid="uid://clpnjpfj1qij7" path="res://Assets/Sprites/Player/Samurai/Idle.png" id="4_wkp8b"]
+[ext_resource type="Texture2D" uid="uid://5d8oxqs72i0o" path="res://Assets/Sprites/Player/Samurai/Run.png" id="5_20pc6"]
+[ext_resource type="Texture2D" uid="uid://rvya6fsrapid" path="res://Assets/Sprites/Player/Samurai/Jump.png" id="6_5vvyt"]
+[ext_resource type="Texture2D" uid="uid://cy0tav7aw23c6" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_01.png" id="8_c2ibq"]
+[ext_resource type="AudioStream" uid="uid://dvfujhir2q6gt" path="res://Assets/Sounds/GameOver_Sound/080047_lose_funny_retro_video-game-80925.mp3" id="9_03owx"]
+[ext_resource type="AudioStream" uid="uid://d38y0fi24ynfw" path="res://Assets/Sounds/Hurt/ough-47202.mp3" id="9_fpfj3"]
+[ext_resource type="Texture2D" uid="uid://drwlham2hl1u7" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_02.png" id="9_j4qnp"]
+[ext_resource type="Texture2D" uid="uid://bx0k8rikmb3hk" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_42.png" id="10_fpfj3"]
 [ext_resource type="Script" uid="uid://b753x4kfttdfm" path="res://camera_2d.gd" id="10_sc1dx"]
-[ext_resource type="Texture2D" uid="uid://csbajrl2km4ox" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_50.png" id="11_j4qnp"]
-[ext_resource type="AudioStream" uid="uid://dpceraqoja61m" path="res://Assets/Sounds/Background/background-music-for-mobile-casual-video-game-short-8-bit-music-164703.ogg" id="13_c2ibq"]
+[ext_resource type="Texture2D" uid="uid://btr0ebjkogu2l" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_50.png" id="11_j4qnp"]
+[ext_resource type="AudioStream" uid="uid://bop1780hr5a10" path="res://Assets/Sounds/Background/background-music-for-mobile-casual-video-game-short-8-bit-music-164703.ogg" id="13_c2ibq"]
 [ext_resource type="PackedScene" uid="uid://d2h5i6nibvp" path="res://ninja_enemy.tscn" id="14_c2ibq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uu6xs"]
@@ -304,6 +307,36 @@ bg_color = Color(0, 1, 0, 1)
 [node name="Main" type="Node2D"]
 position = Vector2(553, 292)
 script = ExtResource("1_trn2v")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="SkyLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.05, 0.05)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/SkyLayer"]
+scale = Vector2(0.33125, 0.242593)
+texture = ExtResource("2_sc1dx")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(960, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_5tuhn")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(960, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_2gh4u")
+centered = false
+region_enabled = true
+region_rect = Rect2(3.40967, -140.401, 1924.36, 1220.49)
 
 [node name="Player" type="CharacterBody2D" parent="."]
 script = ExtResource("1_r0du0")
