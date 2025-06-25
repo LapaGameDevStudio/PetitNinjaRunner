@@ -1,9 +1,9 @@
 [gd_scene load_steps=30 format=3 uid="uid://d2h5i6nibvp"]
 
-[ext_resource type="Texture2D" uid="uid://b8p3dby2pkmwv" path="res://Assets/Sprites/Enemy/Samurai_Archer/Shot.png" id="1_c0qd7"]
+[ext_resource type="Texture2D" uid="uid://qlfsavg646m1" path="res://Assets/Sprites/Enemy/Samurai_Archer/Shot.png" id="1_c0qd7"]
 [ext_resource type="Script" uid="uid://cjahnrvqbyl8n" path="res://ninja_enemy.gd" id="1_ljjlk"]
 [ext_resource type="PackedScene" uid="uid://3qv5g8wax7d5" path="res://EnemyArrow.tscn" id="2_5mj5k"]
-[ext_resource type="Texture2D" uid="uid://ci7ticbxebvnb" path="res://Assets/Sprites/Enemy/Samurai_Archer/Idle.png" id="2_ljjlk"]
+[ext_resource type="Texture2D" uid="uid://cj85wtafbe5h8" path="res://Assets/Sprites/Enemy/Samurai_Archer/Idle.png" id="2_ljjlk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5mj5k"]
 atlas = ExtResource("1_c0qd7")
