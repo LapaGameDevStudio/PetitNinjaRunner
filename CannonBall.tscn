@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://3qv5g8wax7d5"]
+
+[ext_resource type="Script" uid="uid://dg16iukt7hhjn" path="res://CannonBall.gd" id="1_5ps5e"]
+[ext_resource type="Texture2D" uid="uid://cuu72dki285dd" path="res://Assets/Sprites/weapons/ball.png" id="2_lmprs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hjq5w"]
+radius = 17.2627
+
+[node name="EnemyArrow" type="Area2D"]
+script = ExtResource("1_5ps5e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_lmprs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hjq5w")

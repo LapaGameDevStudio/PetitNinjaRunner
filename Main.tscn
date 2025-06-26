@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://ylhuny8rcjou"]
+[gd_scene load_steps=60 format=3 uid="uid://ylhuny8rcjou"]
 
 [ext_resource type="Script" uid="uid://cb56fhvev7ydq" path="res://player.gd" id="1_r0du0"]
 [ext_resource type="Script" uid="uid://boosyb3tjdh6" path="res://main.gd" id="1_trn2v"]
@@ -18,7 +18,9 @@
 [ext_resource type="Script" uid="uid://b753x4kfttdfm" path="res://camera_2d.gd" id="10_sc1dx"]
 [ext_resource type="Texture2D" uid="uid://btr0ebjkogu2l" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_50.png" id="11_j4qnp"]
 [ext_resource type="AudioStream" uid="uid://bop1780hr5a10" path="res://Assets/Sounds/Background/background-music-for-mobile-casual-video-game-short-8-bit-music-164703.ogg" id="13_c2ibq"]
-[ext_resource type="PackedScene" uid="uid://d2h5i6nibvp" path="res://ninja_enemy.tscn" id="14_c2ibq"]
+[ext_resource type="PackedScene" uid="uid://d2h5i6nibvp" path="res://CannonSpawner.tscn" id="14_c2ibq"]
+[ext_resource type="Texture2D" uid="uid://bims10c2n4aik" path="res://Assets/Sprites/weapons/cannon.png" id="20_devvj"]
+[ext_resource type="Texture2D" uid="uid://drwwuygbtoefu" path="res://Assets/Sprites/weapons/cannon2.png" id="21_3b0ty"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uu6xs"]
 size = Vector2(48.4999, 69)
@@ -299,7 +301,7 @@ sources/2 = SubResource("TileSetAtlasSource_5tuhn")
 sources/3 = SubResource("TileSetAtlasSource_fpfj3")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_trn2v"]
-distance = -430.0
+distance = -539.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fpfj3"]
 bg_color = Color(0, 1, 0, 1)
@@ -342,15 +344,14 @@ region_rect = Rect2(3.40967, -140.401, 1924.36, 1220.49)
 script = ExtResource("1_r0du0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(-473.25, -7.5)
+position = Vector2(-391, -5)
 shape = SubResource("RectangleShape2D_uu6xs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
-position = Vector2(-450, -40)
+position = Vector2(-367, -38)
 scale = Vector2(1.08594, 1.0625)
 sprite_frames = SubResource("SpriteFrames_sc1dx")
 animation = &"RUNNING"
-frame_progress = 0.728678
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="Player"]
 stream = ExtResource("4_03owx")
@@ -444,7 +445,27 @@ offset_top = 2.0
 offset_right = 193.0
 offset_bottom = 25.0
 
+<<<<<<< Updated upstream
 [node name="NinjaEnemy" parent="." instance=ExtResource("14_c2ibq")]
 position = Vector2(334, -26)
+arrow_test_position = Vector2(500, -150)
+=======
+[node name="CannonSpawner" parent="." instance=ExtResource("14_c2ibq")]
+cannon_texture = ExtResource("20_devvj")
+
+[node name="CannonSpawner2" parent="." instance=ExtResource("14_c2ibq")]
+position = Vector2(2738, -169)
+cannon_texture = ExtResource("21_3b0ty")
+
+[node name="CannonSpawner3" parent="." instance=ExtResource("14_c2ibq")]
+position = Vector2(1376, -53)
+throw_interval = 3.0
+cannon_texture = ExtResource("21_3b0ty")
+
+[node name="CannonSpawner4" parent="." instance=ExtResource("14_c2ibq")]
+position = Vector2(2498, -46)
+throw_interval = 4.0
+cannon_texture = ExtResource("20_devvj")
+>>>>>>> Stashed changes
 
 [connection signal="pressed" from="GameOver_UI/Button" to="." method="_on_restart_button_pressed"]

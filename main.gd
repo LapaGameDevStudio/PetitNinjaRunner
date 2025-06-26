@@ -4,7 +4,6 @@ extends Node2D
 @onready var score_label = $CanvasLayer/ScoreLabel
 @onready var health_bar = $CanvasLayer/ProgressBar
 @onready var player = get_node("Player")  # adapte le chemin
-@onready var ninja = get_node("NinjaEnemy")  # adapte le chemin
 var score := 0
 var score_timer := 0.0
 var is_game_over := false
@@ -16,9 +15,7 @@ func setup_health_bar():
 		health_bar.add_theme_stylebox_override("fill", fill_style)
 
 func _ready():
-	ninja = $NinjaEnemy
 	player = $Player
-	ninja.player = player
 	$DeathZone.add_to_group("DeathZone")
 	game_over_ui.visible = false
 	game_over_ui.process_mode = Node.PROCESS_MODE_ALWAYS
