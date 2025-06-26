@@ -1,9 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://d2h5i6nibvp"]
+[gd_scene load_steps=29 format=3 uid="uid://d2h5i6nibvp"]
 
-[ext_resource type="Texture2D" uid="uid://qlfsavg646m1" path="res://Assets/Sprites/Enemy/Samurai_Archer/Shot.png" id="1_c0qd7"]
-[ext_resource type="Script" uid="uid://cjahnrvqbyl8n" path="res://ninja_enemy.gd" id="1_ljjlk"]
-[ext_resource type="PackedScene" uid="uid://3qv5g8wax7d5" path="res://EnemyArrow.tscn" id="2_5mj5k"]
-[ext_resource type="Texture2D" uid="uid://cj85wtafbe5h8" path="res://Assets/Sprites/Enemy/Samurai_Archer/Idle.png" id="2_ljjlk"]
+[ext_resource type="Texture2D" uid="uid://d2od4gdnn0ho0" path="res://Assets/Sprites/Enemy/Samurai_Archer/Shot.png" id="1_c0qd7"]
+[ext_resource type="Script" uid="uid://cjahnrvqbyl8n" path="res://CannonSpawner.gd" id="1_ljjlk"]
+[ext_resource type="Texture2D" uid="uid://cpe2q5r483kxv" path="res://Assets/Sprites/Enemy/Samurai_Archer/Idle.png" id="2_ljjlk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5mj5k"]
 atlas = ExtResource("1_c0qd7")
@@ -184,7 +183,6 @@ size = Vector2(34, 69)
 
 [node name="NinjaEnemy" type="Node2D"]
 script = ExtResource("1_ljjlk")
-EnemyArrow = ExtResource("2_5mj5k")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 

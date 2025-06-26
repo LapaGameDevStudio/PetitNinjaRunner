@@ -2,25 +2,25 @@
 
 [ext_resource type="Script" uid="uid://cb56fhvev7ydq" path="res://player.gd" id="1_r0du0"]
 [ext_resource type="Script" uid="uid://boosyb3tjdh6" path="res://main.gd" id="1_trn2v"]
-[ext_resource type="Texture2D" uid="uid://d2rm5ddvlxtuf" path="res://Assets/Sprites/BackGround/game_background_1/layers/clouds_2.png" id="2_sc1dx"]
-[ext_resource type="Texture2D" uid="uid://cjm42tujrf273" path="res://Assets/Sprites/BackGround/game_background_3/layers/ground_3.png" id="3_5tuhn"]
-[ext_resource type="Texture2D" uid="uid://hqe823quandt" path="res://Assets/Sprites/BackGround/game_background_3/layers/ground_1.png" id="4_2gh4u"]
-[ext_resource type="AudioStream" uid="uid://ntggrxf157tr" path="res://Assets/Sounds/jump sound/cartoon-jump-6462.mp3" id="4_03owx"]
-[ext_resource type="Texture2D" uid="uid://bej76oq3v6pa7" path="res://Assets/Sprites/Player/Samurai/Dead.png" id="4_20pc6"]
-[ext_resource type="Texture2D" uid="uid://clpnjpfj1qij7" path="res://Assets/Sprites/Player/Samurai/Idle.png" id="4_wkp8b"]
-[ext_resource type="Texture2D" uid="uid://5d8oxqs72i0o" path="res://Assets/Sprites/Player/Samurai/Run.png" id="5_20pc6"]
-[ext_resource type="Texture2D" uid="uid://rvya6fsrapid" path="res://Assets/Sprites/Player/Samurai/Jump.png" id="6_5vvyt"]
-[ext_resource type="Texture2D" uid="uid://cy0tav7aw23c6" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_01.png" id="8_c2ibq"]
-[ext_resource type="AudioStream" uid="uid://dvfujhir2q6gt" path="res://Assets/Sounds/GameOver_Sound/080047_lose_funny_retro_video-game-80925.mp3" id="9_03owx"]
-[ext_resource type="AudioStream" uid="uid://d38y0fi24ynfw" path="res://Assets/Sounds/Hurt/ough-47202.mp3" id="9_fpfj3"]
-[ext_resource type="Texture2D" uid="uid://drwlham2hl1u7" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_02.png" id="9_j4qnp"]
-[ext_resource type="Texture2D" uid="uid://bx0k8rikmb3hk" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_42.png" id="10_fpfj3"]
+[ext_resource type="Texture2D" uid="uid://cfjfrav6b8byd" path="res://Assets/Sprites/BackGround/game_background_1/layers/clouds_2.png" id="2_sc1dx"]
+[ext_resource type="Texture2D" uid="uid://tt835b38f2r6" path="res://Assets/Sprites/BackGround/game_background_3/layers/ground_3.png" id="3_5tuhn"]
+[ext_resource type="Texture2D" uid="uid://c0c57vkgn1qig" path="res://Assets/Sprites/BackGround/game_background_3/layers/ground_1.png" id="4_2gh4u"]
+[ext_resource type="AudioStream" uid="uid://bv6gq2w5j2yn0" path="res://Assets/Sounds/jump sound/cartoon-jump-6462.mp3" id="4_03owx"]
+[ext_resource type="Texture2D" uid="uid://cu4u81ohepxfo" path="res://Assets/Sprites/Player/Samurai/Dead.png" id="4_20pc6"]
+[ext_resource type="Texture2D" uid="uid://dmhgxre6eerre" path="res://Assets/Sprites/Player/Samurai/Idle.png" id="4_wkp8b"]
+[ext_resource type="Texture2D" uid="uid://cxdiu38f3i5uo" path="res://Assets/Sprites/Player/Samurai/Run.png" id="5_20pc6"]
+[ext_resource type="Texture2D" uid="uid://doy50sweuh6wq" path="res://Assets/Sprites/Player/Samurai/Jump.png" id="6_5vvyt"]
+[ext_resource type="Texture2D" uid="uid://b46kap23wnmo3" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_01.png" id="8_c2ibq"]
+[ext_resource type="AudioStream" uid="uid://ctufrnw8lpsjm" path="res://Assets/Sounds/GameOver_Sound/080047_lose_funny_retro_video-game-80925.mp3" id="9_03owx"]
+[ext_resource type="AudioStream" uid="uid://civyinqsxxtm0" path="res://Assets/Sounds/Hurt/ough-47202.mp3" id="9_fpfj3"]
+[ext_resource type="Texture2D" uid="uid://br1su5uje0fnf" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_02.png" id="9_j4qnp"]
+[ext_resource type="Texture2D" uid="uid://ltf1pmqlcbt6" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_42.png" id="10_fpfj3"]
 [ext_resource type="Script" uid="uid://b753x4kfttdfm" path="res://camera_2d.gd" id="10_sc1dx"]
-[ext_resource type="Texture2D" uid="uid://btr0ebjkogu2l" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_50.png" id="11_j4qnp"]
-[ext_resource type="AudioStream" uid="uid://bop1780hr5a10" path="res://Assets/Sounds/Background/background-music-for-mobile-casual-video-game-short-8-bit-music-164703.ogg" id="13_c2ibq"]
-[ext_resource type="PackedScene" uid="uid://d2h5i6nibvp" path="res://CannonSpawner.tscn" id="14_c2ibq"]
-[ext_resource type="Texture2D" uid="uid://bims10c2n4aik" path="res://Assets/Sprites/weapons/cannon.png" id="20_devvj"]
-[ext_resource type="Texture2D" uid="uid://drwwuygbtoefu" path="res://Assets/Sprites/weapons/cannon2.png" id="21_3b0ty"]
+[ext_resource type="Texture2D" uid="uid://cah8jmleervyn" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_50.png" id="11_j4qnp"]
+[ext_resource type="AudioStream" uid="uid://cejy0s7pskt8v" path="res://Assets/Sounds/Background/background-music-for-mobile-casual-video-game-short-8-bit-music-164703.ogg" id="13_c2ibq"]
+[ext_resource type="PackedScene" uid="uid://d2h5i6nibvp" path="res://ninja_enemy.tscn" id="14_c2ibq"]
+[ext_resource type="Texture2D" uid="uid://ctlmi2oya74sf" path="res://Assets/Sprites/weapons/cannon.png" id="20_devvj"]
+[ext_resource type="Texture2D" uid="uid://c25nsusrn2xpy" path="res://Assets/Sprites/weapons/cannon2.png" id="21_3b0ty"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uu6xs"]
 size = Vector2(48.4999, 69)
@@ -445,11 +445,6 @@ offset_top = 2.0
 offset_right = 193.0
 offset_bottom = 25.0
 
-<<<<<<< Updated upstream
-[node name="NinjaEnemy" parent="." instance=ExtResource("14_c2ibq")]
-position = Vector2(334, -26)
-arrow_test_position = Vector2(500, -150)
-=======
 [node name="CannonSpawner" parent="." instance=ExtResource("14_c2ibq")]
 cannon_texture = ExtResource("20_devvj")
 
@@ -466,6 +461,5 @@ cannon_texture = ExtResource("21_3b0ty")
 position = Vector2(2498, -46)
 throw_interval = 4.0
 cannon_texture = ExtResource("20_devvj")
->>>>>>> Stashed changes
 
 [connection signal="pressed" from="GameOver_UI/Button" to="." method="_on_restart_button_pressed"]
