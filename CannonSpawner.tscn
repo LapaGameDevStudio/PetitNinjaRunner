@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2h5i6nibvp"]
+[gd_scene load_steps=5 format=3 uid="uid://d2h5i6nibvp"]
 
 [ext_resource type="Script" uid="uid://cjahnrvqbyl8n" path="res://CannonSpawner.gd" id="1_ljjlk"]
 [ext_resource type="PackedScene" uid="uid://3qv5g8wax7d5" path="res://CannonBall.tscn" id="2_3l75s"]
-[ext_resource type="Texture2D" uid="uid://c25nsusrn2xpy" path="res://Assets/Sprites/weapons/cannon2.png" id="3_3l75s"]
+[ext_resource type="Texture2D" uid="uid://b4b3tsjj72ea4" path="res://Assets/Sprites/weapons/cannon2.png" id="3_3l75s"]
 
-[node name="CannonSpawner" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3l75s"]
+size = Vector2(31, 57)
+
+[node name="CannonSpawner" type="StaticBody2D"]
 script = ExtResource("1_ljjlk")
 CannonBall = ExtResource("2_3l75s")
 spawn_offset = Vector2(-85, 0)
@@ -14,3 +17,7 @@ texture = ExtResource("3_3l75s")
 flip_h = true
 
 [node name="ThrowTimer" type="Timer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_3l75s")
