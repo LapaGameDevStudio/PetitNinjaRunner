@@ -8,12 +8,13 @@ var player: Node2D = null
 func _process(delta):
 	if player:
 		var to_player = player.global_position.x - global_position.x		
+		print("Glob pos Player X : ",player.global_position.x)
+		print("Glob pos Enemy X : ",global_position.x)
 		# Flip the entire enemy (including collision, spawn points, etc.)
 		scale.x = -1 if to_player < 0 else 1
 
 
 func _ready():
-	player = $"../Player"
 	$ThrowTimer.wait_time = throw_interval
 	$ThrowTimer.timeout.connect(_on_throw_timer_timeout)
 	$ThrowTimer.start()

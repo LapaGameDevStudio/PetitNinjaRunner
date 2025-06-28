@@ -1,19 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://3qv5g8wax7d5"]
 
 [ext_resource type="Script" uid="uid://dg16iukt7hhjn" path="res://EnemyArrow.gd" id="1_5ps5e"]
-[ext_resource type="Texture2D" uid="uid://dtgibt4ncdp4e" path="res://Assets/Sprites/Enemy/Samurai_Archer/Arrow.png" id="2_qaun2"]
+[ext_resource type="Texture2D" uid="uid://k6ar8w3a0aoe" path="res://Assets/Sprites/Enemy/Samurai_Archer/Arrow.png" id="2_qaun2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qaun2"]
-size = Vector2(98, 61)
+size = Vector2(51.2986, 4.97985)
 
 [node name="EnemyArrow" type="Area2D"]
+top_level = true
+rotation = 0.00633889
 script = ExtResource("1_5ps5e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(382, 135)
-rotation = -3.14159
 texture = ExtResource("2_qaun2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(381, 133)
+position = Vector2(1.80171, 0.587678)
 shape = SubResource("RectangleShape2D_qaun2")

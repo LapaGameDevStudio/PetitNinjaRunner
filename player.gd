@@ -48,6 +48,7 @@ func _physics_process(delta):
 		$AnimatedSprite2D.play()
 
 	move_and_slide()
+	#print("📍 Player position:", global_position)  # <- Add this line
 	var collision = get_last_slide_collision()
 	if collision:
 		var collider = collision.get_collider()
