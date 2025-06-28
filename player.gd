@@ -6,6 +6,12 @@ const SPEED = 300.0
 signal game_over
 var is_dead = false
 @export var max_health: int = 100
+@onready var camera := $Camera2D  # adapte le chemin si besoin
+var previous_direction := 0
+var direction_hold_time := 0.0
+var direction_threshold := 0.3  # temps minimum avant que la caméra suive
+var offset_strength := 500
+
 var current_health: int = max_health
 
 signal health_changed(current_health)
@@ -48,6 +54,23 @@ func _physics_process(delta):
 		$AnimatedSprite2D.play()
 
 	move_and_slide()
+	
+	# Si direction a changé, on reset le timer
+	if direction != previous_direction:
+		direction_hold_time = 0.0
+	else:
+		direction_hold_time += delta
+	
+	previous_direction = direction
+	
+	# Calcul du suivi de la caméra
+	if direction != 0 and direction_hold_time >= direction_threshold:
+		var offset_x = direction * offset_strength
+		camera.offset.x = lerp(camera.offset.x, offset_x, 2 * delta)
+	else:
+		# revenir progressivement à un offset neutre
+		camera.offset.x = lerp(camera.offset.x, 0.0, 2 * delta)
+		
 	var collision = get_last_slide_collision()
 	if collision:
 		var collider = collision.get_collider()

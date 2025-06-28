@@ -1,10 +1,12 @@
-extends Node2D
+extends StaticBody2D
 
 @export var CannonBall: PackedScene
 @export var throw_interval: float = 2.0
 @export var fire_direction: int = -1  # -1 = gauche, 1 = droite
 @export var spawn_offset: Vector2 = Vector2(0, 0)  # relatif au canon
 @export var cannon_texture: Texture2D
+@export var ball_speed: float = 400.0  # 🆕 Vitesse personnalisée
+
 
 func _ready():
 	$Timer.wait_time = throw_interval
@@ -29,5 +31,5 @@ func shoot():
 	var ball = CannonBall.instantiate()
 	ball.position = spawn_offset  # position locale
 	add_child(ball)  # la balle devient enfant du canon
-	ball.set_direction(fire_direction)
+	ball.launch_rocket(fire_direction, ball_speed)
 	print("💣 CannonBall fired at:", ball.global_position, "→ Direction:", fire_direction)

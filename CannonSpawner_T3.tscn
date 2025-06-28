@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://qqjcuo3gjudc"]
+
+[ext_resource type="Script" uid="uid://4aiewfyh8gcr" path="res://cannon_spawner_t_3.gd" id="1_3ys4m"]
+[ext_resource type="Texture2D" uid="uid://dqc0wlnew1dkt" path="res://Assets/Sprites/weapons/Canon_T2.png" id="2_kaokr"]
+[ext_resource type="PackedScene" uid="uid://bpj8gmdp017t1" path="res://bagui_ball.tscn" id="2_l1mqh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73k44"]
+size = Vector2(92, 73)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+position = Vector2(411, 164)
+script = ExtResource("1_3ys4m")
+CannonBall = ExtResource("2_l1mqh")
+spawn_offset = Vector2(-80, -5)
+ball_speed = 1000.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_kaokr")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 11.5)
+shape = SubResource("RectangleShape2D_73k44")
+
+[node name="Timer" type="Timer" parent="."]
