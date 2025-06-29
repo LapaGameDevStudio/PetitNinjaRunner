@@ -1,6 +1,6 @@
 extends Node2D
-
-@onready var game_over_ui = $GameOver_UI
+@onready var game_over_scene = preload("res://GameOver.tscn")
+var game_over_instance: Node = null
 @onready var score_label = $CanvasLayer/ScoreLabel
 @onready var health_bar = $CanvasLayer/ProgressBar
 @onready var player = get_node("Player")  # adapte le chemin
@@ -15,10 +15,15 @@ func setup_health_bar():
 		health_bar.add_theme_stylebox_override("fill", fill_style)
 
 func _ready():
+	var test_scene = game_over_scene.instantiate()
+	if test_scene:
+		print("✅ GameOver scene loaded and instantiated")
+	else:
+		print("❌ Failed to load GameOver scene")
 	player = $Player
 	$DeathZone.add_to_group("DeathZone")
-	game_over_ui.visible = false
-	game_over_ui.process_mode = Node.PROCESS_MODE_ALWAYS
+	#game_over_ui.visible = false
+	#game_over_ui.process_mode = Node.PROCESS_MODE_ALWAYS
 	score = 0
 	score_label.text = "Score: %d" % score
 	setup_health_bar()
@@ -32,19 +37,34 @@ func _process(delta):
 		if score_timer >= 0.5:  # increase score every 0.5 seconds
 			score += 1
 			score_label.text = "Score: %d" % score
-			game_over_ui.get_node("LastScore").text = score_label.text
+			#game_over_ui.get_node("LastScore").text = score_label.text
 			score_timer = 0.0
 
 func _on_game_over():
-	game_over_ui.visible = true
+	if game_over_instance == null:
+		print("helooooow")
+		game_over_instance = game_over_scene.instantiate()
+		add_child(game_over_instance)
+		game_over_instance.get_node("VBoxContainer/LastScore").text = "Score: %d" % score
+		game_over_instance.get_node("VBoxContainer/RestartButton").pressed.connect(_on_restart_button_pressed)
+		game_over_instance.get_node("VBoxContainer/MainMenuButton").pressed.connect(_on_main_menu_button_pressed)
+	else:
+		game_over_instance.visible = true
+
 	score_label.visible = false
 	get_tree().paused = true
+
 	
 func _on_restart_button_pressed():
+	print("_on_restart_button_pressed")
 	get_tree().paused = false
-	game_over_ui.visible = false
 	get_tree().reload_current_scene()
-
+	
+func _on_main_menu_button_pressed():
+	print("_on_main_menu_button_pressed")
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://main_menu.tscn")
+	
 func _on_health_changed(new_health):
 	update_health_bar(new_health)
 

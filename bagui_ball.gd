@@ -17,5 +17,5 @@ func _on_body_entered(body):
 	if body.is_in_group("player"):
 		print("💥 BaguiBall hit the player!")
 		if body.has_method("take_damage"):
-			body.take_damage(50)
+			body.take_damage(10)
 	queue_free()

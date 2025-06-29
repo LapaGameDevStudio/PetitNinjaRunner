@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PetitNinjaRunner"
-run/main_scene="uid://ylhuny8rcjou"
+run/main_scene="uid://csokm75ft3lg2"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
