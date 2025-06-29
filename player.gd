@@ -55,21 +55,21 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
-	# Si direction a changé, on reset le timer
-	if direction != previous_direction:
-		direction_hold_time = 0.0
-	else:
-		direction_hold_time += delta
-	
-	previous_direction = direction
-	
-	# Calcul du suivi de la caméra
-	if direction != 0 and direction_hold_time >= direction_threshold:
-		var offset_x = direction * offset_strength
-		camera.offset.x = lerp(camera.offset.x, offset_x, 2 * delta)
-	else:
-		# revenir progressivement à un offset neutre
-		camera.offset.x = lerp(camera.offset.x, 0.0, 2 * delta)
+	## Si direction a changé, on reset le timer
+	#if direction != previous_direction:
+		#direction_hold_time = 0.0
+	#else:
+		#direction_hold_time += delta
+	#
+	#previous_direction = direction
+	#
+	## Calcul du suivi de la caméra
+	#if direction != 0 and direction_hold_time >= direction_threshold:
+		#var offset_x = direction * offset_strength
+		#camera.offset.x = lerp(camera.offset.x, offset_x, 2 * delta)
+	#else:
+		## revenir progressivement à un offset neutre
+		#camera.offset.x = lerp(camera.offset.x, 0.0, 2 * delta)
 		
 	var collision = get_last_slide_collision()
 	if collision:

@@ -1,236 +1,19 @@
-[gd_scene load_steps=59 format=3 uid="uid://ylhuny8rcjou"]
+[gd_scene load_steps=22 format=3 uid="uid://ylhuny8rcjou"]
 
-[ext_resource type="Script" uid="uid://cb56fhvev7ydq" path="res://player.gd" id="1_r0du0"]
 [ext_resource type="Script" uid="uid://boosyb3tjdh6" path="res://main.gd" id="1_trn2v"]
-[ext_resource type="Texture2D" uid="uid://dmjj5nf853ghi" path="res://Assets/Sprites/BackGround/game_background_1/layers/clouds_2.png" id="2_sc1dx"]
-[ext_resource type="Texture2D" uid="uid://c0tmnh74t7bc0" path="res://Assets/Sprites/BackGround/game_background_3/layers/ground_3.png" id="3_5tuhn"]
-[ext_resource type="Texture2D" uid="uid://ccbky2lbsvoaa" path="res://Assets/Sprites/BackGround/game_background_3/layers/ground_1.png" id="4_2gh4u"]
-[ext_resource type="AudioStream" uid="uid://biv7tyxjgdrpr" path="res://Assets/Sounds/jump sound/cartoon-jump-6462.mp3" id="4_03owx"]
-[ext_resource type="Texture2D" uid="uid://cn1bd4lkurock" path="res://Assets/Sprites/Player/Samurai/Dead.png" id="4_20pc6"]
-[ext_resource type="Texture2D" uid="uid://cydvy5py7ubmc" path="res://Assets/Sprites/Player/Samurai/Idle.png" id="4_wkp8b"]
-[ext_resource type="Texture2D" uid="uid://ckraer8onbwcl" path="res://Assets/Sprites/Player/Samurai/Run.png" id="5_20pc6"]
-[ext_resource type="Texture2D" uid="uid://bvuxurin8hnwc" path="res://Assets/Sprites/Player/Samurai/Jump.png" id="6_5vvyt"]
-[ext_resource type="Texture2D" uid="uid://cfkpircknrpcd" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_01.png" id="8_c2ibq"]
-[ext_resource type="AudioStream" uid="uid://df4psnnvkybn5" path="res://Assets/Sounds/GameOver_Sound/080047_lose_funny_retro_video-game-80925.mp3" id="9_03owx"]
-[ext_resource type="Texture2D" uid="uid://bi5no28x1n38o" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_02.png" id="9_j4qnp"]
-[ext_resource type="Texture2D" uid="uid://bwr1xra6ged87" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_42.png" id="10_fpfj3"]
-[ext_resource type="Script" uid="uid://b753x4kfttdfm" path="res://camera_2d.gd" id="10_sc1dx"]
-[ext_resource type="Texture2D" uid="uid://tw1v6g2a3ohx" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_50.png" id="11_j4qnp"]
-[ext_resource type="AudioStream" uid="uid://dvusqgoryyyus" path="res://Assets/Sounds/Hurt/man-death-scream-186763.mp3" id="12_devvj"]
-[ext_resource type="AudioStream" uid="uid://dn4eoqytxhokb" path="res://Assets/Sounds/Background/background-music-for-mobile-casual-video-game-short-8-bit-music-164703.ogg" id="13_c2ibq"]
-[ext_resource type="PackedScene" uid="uid://d2h5i6nibvp" path="res://CannonSpawner.tscn" id="19_devvj"]
-[ext_resource type="Texture2D" uid="uid://c736feguvkb28" path="res://Assets/Sprites/weapons/cannon.png" id="20_devvj"]
-[ext_resource type="Texture2D" uid="uid://b4b3tsjj72ea4" path="res://Assets/Sprites/weapons/cannon2.png" id="21_3b0ty"]
+[ext_resource type="Texture2D" uid="uid://dd2iu5i2t0qef" path="res://Assets/Sprites/BackGround/game_background_1/layers/clouds_2.png" id="2_sc1dx"]
+[ext_resource type="Texture2D" uid="uid://1hujrh32lcy" path="res://Assets/Sprites/BackGround/game_background_3/layers/ground_3.png" id="3_5tuhn"]
+[ext_resource type="Texture2D" uid="uid://da6mdpnkwfy5c" path="res://Assets/Sprites/BackGround/game_background_3/layers/ground_1.png" id="4_2gh4u"]
+[ext_resource type="Texture2D" uid="uid://jltsm5jetndl" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_01.png" id="8_c2ibq"]
+[ext_resource type="Texture2D" uid="uid://51ql7dshx0m1" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_02.png" id="9_j4qnp"]
+[ext_resource type="Texture2D" uid="uid://53e5d4bo0d4j" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_42.png" id="10_fpfj3"]
+[ext_resource type="Texture2D" uid="uid://d31j3pta3rhpk" path="res://Assets/Sprites/TileSet/1 Tiles/Tile_50.png" id="11_j4qnp"]
+[ext_resource type="AudioStream" uid="uid://kq02rhx420g4" path="res://Assets/Sounds/Background/background-music-for-mobile-casual-video-game-short-8-bit-music-164703.ogg" id="13_c2ibq"]
+[ext_resource type="PackedScene" path="res://player.tscn" id="15_j4qnp"]
+[ext_resource type="PackedScene" uid="uid://c56ooy4ljaili" path="res://ninja_enemy.tscn" id="16_fpfj3"]
+[ext_resource type="Texture2D" uid="uid://b4q0vfkx04q37" path="res://Assets/Sprites/weapons/cannon.png" id="20_devvj"]
 [ext_resource type="PackedScene" uid="uid://bkr1x0vkpyci1" path="res://CannonSpawner_T2.tscn" id="21_bg4s2"]
 [ext_resource type="PackedScene" uid="uid://qqjcuo3gjudc" path="res://CannonSpawner_T3.tscn" id="23_hhcpw"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uu6xs"]
-size = Vector2(43.25, 69)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xrxkg"]
-atlas = ExtResource("4_20pc6")
-region = Rect2(42, 0, 42, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sqvbp"]
-atlas = ExtResource("4_20pc6")
-region = Rect2(168, 0, 42, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hri7i"]
-atlas = ExtResource("4_20pc6")
-region = Rect2(294, 0, 42, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w3rk5"]
-atlas = ExtResource("4_20pc6")
-region = Rect2(420, 0, 42, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5mvff"]
-atlas = ExtResource("4_20pc6")
-region = Rect2(546, 0, 42, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gngx1"]
-atlas = ExtResource("4_20pc6")
-region = Rect2(714, 0, 42, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jt61w"]
-atlas = ExtResource("4_wkp8b")
-region = Rect2(0, 0, 64, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v8qla"]
-atlas = ExtResource("4_wkp8b")
-region = Rect2(128, 0, 64, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y1tbi"]
-atlas = ExtResource("4_wkp8b")
-region = Rect2(256, 0, 64, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c2s76"]
-atlas = ExtResource("4_wkp8b")
-region = Rect2(384, 0, 64, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f4ese"]
-atlas = ExtResource("4_wkp8b")
-region = Rect2(512, 0, 64, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rchyr"]
-atlas = ExtResource("4_wkp8b")
-region = Rect2(640, 0, 64, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bg4s2"]
-atlas = ExtResource("6_5vvyt")
-region = Rect2(50, 0, 50, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hhcpw"]
-atlas = ExtResource("6_5vvyt")
-region = Rect2(300, 0, 50, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mxvw5"]
-atlas = ExtResource("6_5vvyt")
-region = Rect2(429, 0, 33, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oye8v"]
-atlas = ExtResource("6_5vvyt")
-region = Rect2(561, 0, 33, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_40n85"]
-atlas = ExtResource("6_5vvyt")
-region = Rect2(693, 0, 33, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gb15f"]
-atlas = ExtResource("6_5vvyt")
-region = Rect2(810, 0, 54, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sph85"]
-atlas = ExtResource("6_5vvyt")
-region = Rect2(936, 0, 52, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o7g6l"]
-atlas = ExtResource("5_20pc6")
-region = Rect2(138, 0, 46, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vi5kq"]
-atlas = ExtResource("5_20pc6")
-region = Rect2(276, 0, 46, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5mkgo"]
-atlas = ExtResource("5_20pc6")
-region = Rect2(414, 0, 46, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3ccbu"]
-atlas = ExtResource("5_20pc6")
-region = Rect2(528, 0, 44, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ny7u2"]
-atlas = ExtResource("5_20pc6")
-region = Rect2(660, 0, 44, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x3yn0"]
-atlas = ExtResource("5_20pc6")
-region = Rect2(782, 0, 46, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1w2xm"]
-atlas = ExtResource("5_20pc6")
-region = Rect2(920, 0, 46, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_sc1dx"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xrxkg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sqvbp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hri7i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w3rk5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5mvff")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gngx1")
-}],
-"loop": true,
-"name": &"DEATH",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jt61w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v8qla")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y1tbi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c2s76")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f4ese")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rchyr")
-}],
-"loop": true,
-"name": &"IDLE",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bg4s2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hhcpw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mxvw5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oye8v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_40n85")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gb15f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sph85")
-}],
-"loop": true,
-"name": &"JUMP",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o7g6l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vi5kq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5mkgo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3ccbu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ny7u2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x3yn0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1w2xm")
-}],
-"loop": true,
-"name": &"RUNNING",
-"speed": 5.0
-}]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sc1dx"]
 texture = ExtResource("8_c2ibq")
@@ -321,36 +104,6 @@ centered = false
 region_enabled = true
 region_rect = Rect2(3.40967, -140.401, 1924.36, 1220.49)
 
-[node name="Player" type="CharacterBody2D" parent="."]
-script = ExtResource("1_r0du0")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(-49, -5)
-shape = SubResource("RectangleShape2D_uu6xs")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
-position = Vector2(-52, -39)
-scale = Vector2(1.08594, 1.0625)
-sprite_frames = SubResource("SpriteFrames_sc1dx")
-animation = &"IDLE"
-frame_progress = 0.2911
-
-[node name="JumpSound" type="AudioStreamPlayer2D" parent="Player"]
-stream = ExtResource("4_03owx")
-
-[node name="GameOverSound" type="AudioStreamPlayer2D" parent="Player"]
-position = Vector2(-553, -292)
-stream = ExtResource("9_03owx")
-
-[node name="HurtSound" type="AudioStreamPlayer2D" parent="Player"]
-stream = ExtResource("12_devvj")
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-limit_smoothed = true
-position_smoothing_enabled = true
-drag_horizontal_enabled = true
-script = ExtResource("10_sc1dx")
-
 [node name="Ground" type="StaticBody2D" parent="."]
 
 [node name="TileMap" type="TileMap" parent="Ground"]
@@ -429,16 +182,6 @@ offset_top = 2.0
 offset_right = 193.0
 offset_bottom = 25.0
 
-[node name="Cannon1_T1" parent="." instance=ExtResource("19_devvj")]
-position = Vector2(487, 0)
-throw_interval = 4.0
-cannon_texture = ExtResource("21_3b0ty")
-
-[node name="Cannon2_T1" parent="." instance=ExtResource("19_devvj")]
-position = Vector2(2946, -9)
-throw_interval = 3.0
-cannon_texture = ExtResource("21_3b0ty")
-
 [node name="Cannon1_T2" parent="." instance=ExtResource("21_bg4s2")]
 position = Vector2(3740, 595)
 throw_interval = 3.0
@@ -446,5 +189,11 @@ cannon_texture = ExtResource("20_devvj")
 
 [node name="Cannon1_T3" parent="." instance=ExtResource("23_hhcpw")]
 position = Vector2(1541, -130)
+
+[node name="Player" parent="." instance=ExtResource("15_j4qnp")]
+position = Vector2(2, -5)
+
+[node name="NinjaEnemy" parent="." instance=ExtResource("16_fpfj3")]
+position = Vector2(-200, -5)
 
 [connection signal="pressed" from="GameOver_UI/Button" to="." method="_on_restart_button_pressed"]

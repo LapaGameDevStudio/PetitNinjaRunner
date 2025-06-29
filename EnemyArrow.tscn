@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://5t0ohbh8tyv7"]
+
+[ext_resource type="Script" path="res://EnemyArrow.gd" id="1_5ps5e"]
+[ext_resource type="Texture2D" uid="uid://k6ar8w3a0aoe" path="res://Assets/Sprites/Enemy/Samurai_Archer/Arrow.png" id="2_qaun2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qaun2"]
+size = Vector2(51.2986, 4.97985)
+
+[node name="EnemyArrow" type="Area2D"]
+top_level = true
+rotation = 0.00633889
+script = ExtResource("1_5ps5e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_qaun2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.80171, 0.587678)
+shape = SubResource("RectangleShape2D_qaun2")
