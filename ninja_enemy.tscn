@@ -189,7 +189,7 @@ script = ExtResource("1_ljjlk")
 position = Vector2(0, -30)
 sprite_frames = SubResource("SpriteFrames_fbevd")
 animation = &"IDLE"
-frame_progress = 0.0464741
+frame_progress = 0.0971815
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
