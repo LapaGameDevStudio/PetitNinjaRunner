@@ -1,12 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmp3gdpqhmjkl"]
+[gd_scene load_steps=4 format=3 uid="uid://bmp3gdpqhmjkl"]
 
 [ext_resource type="Script" uid="uid://lfhj2loy43p7" path="res://sakura_leaf.gd" id="1_cnd53"]
+[ext_resource type="Texture2D" uid="uid://cctxkodn17llt" path="res://Assets/Sprites/Sakura/Sprite-0001.png" id="2_aif36"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aif36"]
+size = Vector2(11, 13)
 
 [node name="SakuraLeaf" type="Area2D"]
 script = ExtResource("1_cnd53")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_aif36")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_aif36")
 
 [node name="Timer" type="Timer" parent="."]

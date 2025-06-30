@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://5t0ohbh8tyv7"]
+[gd_scene load_steps=4 format=3 uid="uid://bymb2lslr6a6"]
 
-[ext_resource type="Script" path="res://EnemyArrow.gd" id="1_5ps5e"]
-[ext_resource type="Texture2D" uid="uid://k6ar8w3a0aoe" path="res://Assets/Sprites/Enemy/Samurai_Archer/Arrow.png" id="2_qaun2"]
+[ext_resource type="Script" uid="uid://bqebehdmgkgag" path="res://EnemyArrow.gd" id="1_5ps5e"]
+[ext_resource type="Texture2D" uid="uid://cnmkndjhsb6go" path="res://Assets/Sprites/Enemy/Samurai_Archer/Arrow.png" id="2_qaun2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qaun2"]
 size = Vector2(51.2986, 4.97985)

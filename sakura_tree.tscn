@@ -8,26 +8,101 @@ a = Vector2(100, 377)
 b = Vector2(-118, 375)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3o1te"]
-radius = 880.046
+radius = 1923.41
 
 [node name="SakuraTree" type="CharacterBody2D"]
+scale = Vector2(0.7, 0.7)
 script = ExtResource("1_3o1te")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = -1
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("1_wbxrb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-7, 2)
+scale = Vector2(0.7, 0.7)
 shape = SubResource("SegmentShape2D_5cbfx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
 
 [node name="LeafSpawnTimer" type="Timer" parent="."]
+wait_time = 0.5
 
 [node name="DetectionArea" type="Area2D" parent="."]
+scale = Vector2(0.7, 0.7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+scale = Vector2(0.7, 0.7)
 shape = SubResource("CircleShape2D_3o1te")
 
-[node name="LeafSpawnPoint" type="Marker2D" parent="."]
-position = Vector2(0, -122)
+[node name="LeafSpawnPoint1" type="Marker2D" parent="."]
+position = Vector2(161.429, 71.4286)
+
+[node name="LeafSpawnPoint2" type="Marker2D" parent="."]
+position = Vector2(-212.857, 44.2857)
+
+[node name="LeafSpawnPoint3" type="Marker2D" parent="."]
+position = Vector2(-181.429, -104.286)
+
+[node name="LeafSpawnPoint4" type="Marker2D" parent="."]
+position = Vector2(-85.7143, -215.714)
+
+[node name="LeafSpawnPoint5" type="Marker2D" parent="."]
+position = Vector2(220, -100)
+
+[node name="LeafSpawnPoint6" type="Marker2D" parent="."]
+position = Vector2(100, -248.571)
+
+[node name="LeafSpawnPoint7" type="Marker2D" parent="."]
+position = Vector2(-77.1428, -98.5714)
+
+[node name="LeafSpawnPoint8" type="Marker2D" parent="."]
+position = Vector2(54.2857, -151.429)
+
+[node name="LeafSpawnPoint9" type="Marker2D" parent="."]
+position = Vector2(140, -141.429)
+
+[node name="LeafSpawnPoint10" type="Marker2D" parent="."]
+position = Vector2(-140, 97.1428)
+
+[node name="LeafSpawnPoint11" type="Marker2D" parent="."]
+position = Vector2(-261.429, -37.1429)
+
+[node name="LeafSpawnPoint12" type="Marker2D" parent="."]
+position = Vector2(-187.143, -188.571)
+
+[node name="LeafSpawnPoint13" type="Marker2D" parent="."]
+position = Vector2(118.571, -62.8571)
+
+[node name="LeafSpawnPoint14" type="Marker2D" parent="."]
+position = Vector2(1.42857, -270)
+
+[node name="LeafSpawnPoint15" type="Marker2D" parent="."]
+position = Vector2(-117.143, -157.143)
+
+[node name="LeafSpawnPoint16" type="Marker2D" parent="."]
+position = Vector2(-17.1429, -160)
+
+[node name="LeafSpawnPoint17" type="Marker2D" parent="."]
+position = Vector2(-152.857, -27.1429)
+
+[node name="LeafSpawnPoint18" type="Marker2D" parent="."]
+position = Vector2(247.143, -1.52588e-05)
+
+[node name="LeafSpawnPoint19" type="Marker2D" parent="."]
+position = Vector2(-90, 34.2857)
+
+[node name="LeafSpawnPoint20" type="Marker2D" parent="."]
+position = Vector2(4.28571, -60)
+
+[node name="LeafSpawnPoint21" type="Marker2D" parent="."]
+position = Vector2(155.714, -197.143)
+
+[node name="LeafSpawnPoint22" type="Marker2D" parent="."]
+position = Vector2(102.857, 25.7143)
+
+[connection signal="timeout" from="LeafSpawnTimer" to="." method="_on_LeafSpawnTimer_timeout"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

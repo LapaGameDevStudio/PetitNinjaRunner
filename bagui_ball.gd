@@ -7,7 +7,7 @@ func launch_rocket(dir: int, speed: float):
 	#$Sprite2D.flip_h = dir < 0
 
 func _ready():
-	print("🟢 CannonBall spawned at: ", global_position)
+	#print("🟢 CannonBall spawned at: ", global_position)
 	connect("body_entered", Callable(self, "_on_body_entered"))
 
 func _process(delta):

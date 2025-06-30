@@ -19,14 +19,21 @@ func _ready():
 	$ThrowTimer.start()
 
 func _on_throw_timer_timeout():
-	shoot_arrow()
+	var to_player = player.global_position.x - global_position.x		
+	print(to_player)
+	if (to_player > -500 and to_player < 500) :
+		$AnimatedSprite2D.stop()
+		shoot_arrow()
+	else :
+		$AnimatedSprite2D.animation = "IDLE"
+		$AnimatedSprite2D.play()
 
 func shoot_arrow():
 	$AnimatedSprite2D.animation = "ATTACK"
 	$AnimatedSprite2D.play()
 	var anim_length = $AnimatedSprite2D.sprite_frames.get_frame_count("ATTACK") / $AnimatedSprite2D.sprite_frames.get_animation_speed("ATTACK")
 	await get_tree().create_timer(anim_length).timeout
-	print("ARROW SHOT")
+	#print("ARROW SHOT")
 	const Arrow = preload("res://EnemyArrow.tscn")
 	var new_arrow = Arrow.instantiate()
 	new_arrow.global_position = $ArrowSpawnPoint.global_position

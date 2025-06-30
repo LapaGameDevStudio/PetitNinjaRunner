@@ -42,7 +42,6 @@ func _process(delta):
 
 func _on_game_over():
 	if game_over_instance == null:
-		print("helooooow")
 		game_over_instance = game_over_scene.instantiate()
 		add_child(game_over_instance)
 		game_over_instance.get_node("VBoxContainer/LastScore").text = "Score: %d" % score

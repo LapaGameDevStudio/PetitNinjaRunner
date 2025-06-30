@@ -196,6 +196,7 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_45cmg")
 
 [node name="ThrowTimer" type="Timer" parent="."]
+wait_time = 0.3
 
 [node name="ArrowSpawnPoint" type="Marker2D" parent="."]
 position = Vector2(18, -18)
