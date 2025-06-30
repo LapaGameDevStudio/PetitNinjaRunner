@@ -1,9 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://tja65cdbtieb"]
+[gd_scene load_steps=34 format=3 uid="uid://tja65cdbtieb"]
 
 [ext_resource type="Script" uid="uid://cb56fhvev7ydq" path="res://player.gd" id="1_b26j0"]
 [ext_resource type="Texture2D" uid="uid://bvy5d7fhbkdcu" path="res://Assets/Sprites/Player/Samurai/Dead.png" id="2_n7ghd"]
 [ext_resource type="Texture2D" uid="uid://crw3r7p8ox1dg" path="res://Assets/Sprites/Player/Samurai/Idle.png" id="3_nvl01"]
 [ext_resource type="Texture2D" uid="uid://dm4ceeqj0v88c" path="res://Assets/Sprites/Player/Samurai/Jump.png" id="4_ivps1"]
+[ext_resource type="Texture2D" uid="uid://5ke2kj4u3v5i" path="res://Assets/Sprites/Player/Samurai/Protection.png" id="5_n7ghd"]
 [ext_resource type="Texture2D" uid="uid://bg8rr8msiynpl" path="res://Assets/Sprites/Player/Samurai/Run.png" id="5_urp6f"]
 [ext_resource type="AudioStream" uid="uid://6x018hys6aaa" path="res://Assets/Sounds/jump sound/cartoon-jump-6462.mp3" id="6_bwjto"]
 [ext_resource type="AudioStream" uid="uid://6n3j3hcngic0" path="res://Assets/Sounds/GameOver_Sound/080047_lose_funny_retro_video-game-80925.mp3" id="7_606se"]
@@ -80,6 +81,14 @@ region = Rect2(418, 49, 52, 79)
 [sub_resource type="AtlasTexture" id="AtlasTexture_7hik5"]
 atlas = ExtResource("4_ivps1")
 region = Rect2(550, 49, 50, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvl01"]
+atlas = ExtResource("5_n7ghd")
+region = Rect2(12, 50, 122, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivps1"]
+atlas = ExtResource("5_n7ghd")
+region = Rect2(134, 50, 122, 78)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b26j0"]
 atlas = ExtResource("5_urp6f")
@@ -159,6 +168,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_nvl01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivps1")
+}],
+"loop": true,
+"name": &"PROTECT",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_b26j0")
 }, {
 "duration": 1.0,
@@ -180,7 +200,8 @@ shape = SubResource("RectangleShape2D_q13i1")
 position = Vector2(-2.51837, -5.02287)
 scale = Vector2(0.859949, 0.89251)
 sprite_frames = SubResource("SpriteFrames_pylmc")
-animation = &"IDLE"
+animation = &"PROTECT"
+frame_progress = 0.8398
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_bwjto")

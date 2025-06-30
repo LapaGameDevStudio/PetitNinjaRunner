@@ -2,7 +2,7 @@ extends CharacterBody2D
 const GRAVITY = 1000.0
 const JUMP_FORCE = -500.0
 const SPEED = 300.0
-
+var PROTECTED = false
 signal game_over
 var is_dead = false
 @export var max_health: int = 100
@@ -19,7 +19,8 @@ signal health_changed(current_health)
 func take_damage(amount: int):
 	if is_dead:
 		return  # Ignore damage when already dead
-
+	if PROTECTED:
+		return  # Ignore damage when Protected
 	current_health -= amount
 	emit_signal("health_changed", current_health)
 	print("💔 Player took", amount, "damage. Remaining:", current_health)
@@ -33,7 +34,7 @@ func _ready():
 
 func _physics_process(delta):
 	if is_dead:
-		return  # Stop everything when dead
+		return
 	velocity.y += GRAVITY * delta
 
 	var direction = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -42,7 +43,16 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_FORCE
 		$JumpSound.play()
-	if not is_on_floor():
+
+	if Input.is_action_pressed("ui_down"):
+		if not PROTECTED:
+			PROTECTED = true
+			$AnimatedSprite2D.animation = "PROTECT"
+			$AnimatedSprite2D.play()
+	elif PROTECTED:
+		PROTECTED = false
+
+	elif not is_on_floor():
 		$AnimatedSprite2D.animation = "JUMP"
 		$AnimatedSprite2D.play()
 	elif direction != 0:
@@ -54,6 +64,7 @@ func _physics_process(delta):
 		$AnimatedSprite2D.play()
 
 	move_and_slide()
+
 	
 	## Si direction a changé, on reset le timer
 	#if direction != previous_direction:

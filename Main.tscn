@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ylhuny8rcjou"]
+[gd_scene load_steps=20 format=3 uid="uid://ylhuny8rcjou"]
 
 [ext_resource type="Script" uid="uid://boosyb3tjdh6" path="res://main.gd" id="1_trn2v"]
 [ext_resource type="Texture2D" uid="uid://dd2iu5i2t0qef" path="res://Assets/Sprites/BackGround/game_background_1/layers/clouds_2.png" id="2_sc1dx"]
@@ -12,9 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://ch178q1h1b8ku" path="res://sakura_tree.tscn" id="15_fpfj3"]
 [ext_resource type="PackedScene" uid="uid://tja65cdbtieb" path="res://player.tscn" id="15_j4qnp"]
 [ext_resource type="PackedScene" uid="uid://c56ooy4ljaili" path="res://ninja_enemy.tscn" id="16_fpfj3"]
-[ext_resource type="Texture2D" uid="uid://b4q0vfkx04q37" path="res://Assets/Sprites/weapons/cannon.png" id="20_devvj"]
-[ext_resource type="PackedScene" uid="uid://bkr1x0vkpyci1" path="res://CannonSpawner_T2.tscn" id="21_bg4s2"]
-[ext_resource type="PackedScene" uid="uid://qqjcuo3gjudc" path="res://CannonSpawner_T3.tscn" id="23_hhcpw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sc1dx"]
 texture = ExtResource("8_c2ibq")
@@ -155,20 +152,12 @@ offset_right = 193.0
 offset_bottom = 25.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Cannon1_T2" parent="." instance=ExtResource("21_bg4s2")]
-position = Vector2(1468, -2)
-throw_interval = 3.0
-cannon_texture = ExtResource("20_devvj")
-
-[node name="Cannon1_T3" parent="." instance=ExtResource("23_hhcpw")]
-position = Vector2(1030, -22)
-
 [node name="Player" parent="." instance=ExtResource("15_j4qnp")]
 position = Vector2(2, -5)
 
-[node name="NinjaEnemy" parent="." instance=ExtResource("16_fpfj3")]
-position = Vector2(-200, -5)
-
 [node name="SakuraTree" parent="." instance=ExtResource("15_fpfj3")]
-position = Vector2(2184, -121)
+position = Vector2(2017, -69)
 scale = Vector2(0.4, 0.4)
+
+[node name="NinjaEnemy" parent="." instance=ExtResource("16_fpfj3")]
+position = Vector2(1121, -7)

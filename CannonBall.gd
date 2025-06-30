@@ -7,7 +7,7 @@ func launch_rocket(dir: int, speed: float):
 	#$Sprite2D.flip_h = dir < 0
 
 func _ready():
-	print("🟢 CannonBall spawned at: ", global_position)
+	#print("🟢 CannonBall spawned at: ", global_position)
 	connect("body_entered", Callable(self, "_on_body_entered"))
 
 func _process(delta):
@@ -15,7 +15,7 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):
-		print("💥 CannonBall hit the player!")
+		#print("💥 CannonBall hit the player!")
 		if body.has_method("take_damage"):
 			body.take_damage(20)
 	queue_free()

@@ -32,4 +32,4 @@ func shoot():
 	ball.position = spawn_offset  # position locale
 	add_child(ball)  # la balle devient enfant du canon
 	ball.launch_rocket(fire_direction, ball_speed)
-	print("💣 CannonBall fired at:", ball.global_position, "→ Direction:", fire_direction)
+	#print("💣 CannonBall fired at:", ball.global_position, "→ Direction:", fire_direction)
