@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://c608ncaeioheo"]
+
+[ext_resource type="Script" uid="uid://cmmkeb5lyplnp" path="res://tools/ParallaxEditor.gd" id="1_n2im3"]
+[ext_resource type="Texture2D" uid="uid://d3asl52f26eql" path="res://Assets/freepik_assistant_1751205091425.png" id="2_xqdu2"]
+
+[node name="ParallaxEditor" type="Node2D"]
+script = ExtResource("1_n2im3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("2_xqdu2")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="AddLayerButton" type="Button" parent="UI"]
+offset_right = 86.0
+offset_bottom = 31.0
+text = "Add Layer"
+
+[node name="RemoveLayerButton" type="Button" parent="UI"]
+offset_top = 31.0
+offset_right = 145.0
+offset_bottom = 62.0
+text = "Remove layer"
+
+[node name="TexturePicker" type="FileDialog" parent="UI"]
+title = "Open a File"
+position = Vector2i(0, 36)
+ok_button_text = "Open"
+file_mode = 0
+
+[node name="MoveLayerUpButton" type="Button" parent="UI"]
+offset_top = 61.0
+offset_right = 22.0
+offset_bottom = 92.0
+text = "▲"
+
+[node name="MoveLayerDownButton" type="Button" parent="UI"]
+offset_top = 91.0
+offset_right = 22.0
+offset_bottom = 122.0
+text = "▼"
+
+[node name="LayerList" type="ItemList" parent="UI"]
+offset_left = 1.0
+offset_top = 119.0
+offset_right = 31.0
+offset_bottom = 159.0
+auto_width = true
+auto_height = true
+
+[node name="RenameLayerButton" type="Button" parent="UI"]
+offset_left = 85.0
+offset_right = 200.0
+offset_bottom = 31.0
+text = "Rename layer"
+
+[node name="PopupRenameLayer" type="PopupPanel" parent="UI"]
+size = Vector2i(132, 100)
+visible = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PopupRenameLayer"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 128.0
+offset_bottom = 96.0
+
+[node name="LineEdit" type="LineEdit" parent="UI/PopupRenameLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ConfirmButton" type="Button" parent="UI/PopupRenameLayer/VBoxContainer"]
+layout_mode = 2
+text = "OK"
