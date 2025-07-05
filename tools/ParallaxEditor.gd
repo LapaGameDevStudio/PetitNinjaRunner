@@ -1,14 +1,13 @@
 extends Node2D
 
-@onready var parallax: Node = $ParallaxBackground
+@onready var parallax := $ParallaxBackground
 @onready var camera := $Camera2D
 @onready var add_layer_button := $UI/AddLayerButton
 @onready var texture_picker := $UI/TexturePicker
 @onready var layer_list := $UI/LayerList
-var layer_names := []  # Liste des noms des layers, correspond à l’ordre des enfants dans parallax
-var rename_index := -1
-
+var layer_names := []
 var layer_count := 0
+
 var selected_layer: ParallaxLayer = null
 const LAYER_MOVE_SPEED := 10
 
@@ -18,18 +17,20 @@ func _ready():
 	$UI/MoveLayerUpButton.pressed.connect(_on_move_layer_up)
 	$UI/MoveLayerDownButton.pressed.connect(_on_move_layer_down)
 	$UI/TexturePicker.filters = PackedStringArray(["*.png", "*.jpg", "*.webp"])
-	$UI/TexturePicker.connect("file_selected", Callable(self, "_on_TexturePicker_file_selected"))
+	texture_picker.connect("file_selected", Callable(self, "_on_TexturePicker_file_selected"))
 	layer_list.connect("item_selected", Callable(self, "_on_layer_selected"))
-	layer_list.connect("item_activated", Callable(self, "_on_layer_rename_requested"))  # double clic
+	layer_list.connect("item_activated", Callable(self, "_on_layer_rename_requested"))
 	$UI/RenameLayerButton.pressed.connect(_on_RenameLayerButton_pressed)
 	$UI/PopupRenameLayer/VBoxContainer/ConfirmButton.pressed.connect(_on_PopupRenameLayer_confirm)
+	$UI/MotionScaleX.value_changed.connect(_on_motion_scale_x_changed)
+	$UI/MotionScaleY.value_changed.connect(_on_motion_scale_y_changed)
+	$UI/DuplicateLayerButton.pressed.connect(_on_DuplicateLayerButton_pressed)
 
 	update_layer_list()
 
 
 func _process(delta):
 	var speed = 500
-
 	if Input.is_key_pressed(KEY_CTRL) and selected_layer:
 		var sprite := selected_layer.get_child(0)
 		if sprite:
@@ -60,6 +61,7 @@ func _process(delta):
 func _on_add_layer_pressed():
 	texture_picker.popup_centered()
 
+
 func _on_TexturePicker_file_selected(path):
 	var texture = load(path)
 	if texture:
@@ -71,14 +73,15 @@ func _on_TexturePicker_file_selected(path):
 		sprite.region_enabled = true
 		var screen_size = get_viewport().size
 		sprite.region_rect = Rect2(Vector2.ZERO, screen_size * 2)
-
 		layer.add_child(sprite)
-		layer.motion_scale = Vector2(0.4 + 0.2 * layer_count, 1)
+		layer.motion_scale = Vector2(0.4 + parallax.get_child_count() * 0.2, 1)
+		layer.set_meta("custom_name", "Layer %d" % parallax.get_child_count())
+
 		parallax.add_child(layer)
-		layer_count += 1
 		selected_layer = layer
 		update_layer_list()
-		layer_list.select(layer_count - 1)
+		layer_list.select(parallax.get_children().find(layer))
+		_update_motion_scale_ui()
 
 
 func _on_RemoveLayerButton_pressed():
@@ -90,8 +93,8 @@ func _on_RemoveLayerButton_pressed():
 		if layers.size() > 0:
 			layers[-1].queue_free()
 
-	layer_count = max(0, layer_count - 1)
 	update_layer_list()
+	_update_motion_scale_ui()
 
 
 func _on_move_layer_up():
@@ -101,6 +104,7 @@ func _on_move_layer_up():
 	if index > 0:
 		parallax.move_child(selected_layer, index - 1)
 	update_layer_list()
+	_update_motion_scale_ui()
 
 
 func _on_move_layer_down():
@@ -111,6 +115,7 @@ func _on_move_layer_down():
 	if index < children.size() - 1:
 		parallax.move_child(selected_layer, index + 1)
 	update_layer_list()
+	_update_motion_scale_ui()
 
 
 func _on_layer_selected(index):
@@ -119,6 +124,25 @@ func _on_layer_selected(index):
 		selected_layer = layers[index]
 	else:
 		selected_layer = null
+	_update_motion_scale_ui()
+
+
+func _on_motion_scale_x_changed(value):
+	if selected_layer:
+		selected_layer.motion_scale.x = value
+		print("motion_scale.x set to ", value)
+
+
+func _on_motion_scale_y_changed(value):
+	if selected_layer:
+		selected_layer.motion_scale.y = value
+		print("motion_scale.y set to ", value)
+
+
+func _update_motion_scale_ui():
+	if selected_layer:
+		$UI/MotionScaleX.value = selected_layer.motion_scale.x
+		$UI/MotionScaleY.value = selected_layer.motion_scale.y
 
 
 # ============ RENOMMAGE ==============
@@ -126,42 +150,79 @@ func _on_layer_selected(index):
 func _on_RenameLayerButton_pressed():
 	if selected_layer:
 		var index = parallax.get_children().find(selected_layer)
-		if index >= 0 and index < layer_names.size():
-			var popup = $UI/PopupRenameLayer
-			var line_edit = popup.get_node("VBoxContainer/LineEdit")
-			line_edit.text = layer_names[index]
-			line_edit.grab_focus()  # ← important pour écrire directement
-			popup.set_meta("index", index)  # stocke l'index proprement
-			popup.popup_centered()
+		var popup = $UI/PopupRenameLayer
+		var line_edit = popup.get_node("VBoxContainer/LineEdit")
+		line_edit.text = selected_layer.get_meta("custom_name", "Layer %d" % index)
+		line_edit.grab_focus()
+		popup.set_meta("index", index)
+		popup.popup_centered()
+
 
 func _on_layer_rename_requested(index):
-	if index < 0 or index >= layer_names.size():
+	var layers = parallax.get_children()
+	if index < 0 or index >= layers.size():
 		return
-	rename_index = index  # <-- on stocke l'index ici
-	$UI/PopupRenameLayer.popup_centered()
-	$UI/PopupRenameLayer/VBoxContainer/LineEdit.text = layer_names[index]
+	selected_layer = layers[index]
+	_on_RenameLayerButton_pressed()
+
 
 func _on_PopupRenameLayer_confirm():
 	var popup = $UI/PopupRenameLayer
 	var index = popup.get_meta("index")
 	var new_name = popup.get_node("VBoxContainer/LineEdit").text.strip_edges()
-	if typeof(index) == TYPE_INT and index >= 0 and new_name != "":
-		layer_names[index] = new_name
-		update_layer_list()
+	var layers = parallax.get_children()
+	if typeof(index) == TYPE_INT and index >= 0 and index < layers.size() and new_name != "":
+		layers[index].set_meta("custom_name", new_name)
+	update_layer_list()
 	popup.hide()
 
+func _on_DuplicateLayerButton_pressed():
+	if not selected_layer:
+		print("Aucun layer sélectionné à dupliquer.")
+		return
 
+	var original_index = parallax.get_children().find(selected_layer)
+	if original_index == -1:
+		print("Layer sélectionné introuvable.")
+		return
 
-# ============ MISE À JOUR LISTE ==============
+	# Création d’un nouveau layer
+	var duplicated_layer := ParallaxLayer.new()
+	duplicated_layer.motion_scale = selected_layer.motion_scale
+
+	# Copie du sprite
+	var original_sprite = selected_layer.get_child(0)
+	if original_sprite and original_sprite is Sprite2D:
+		var new_sprite := Sprite2D.new()
+		new_sprite.texture = original_sprite.texture
+		new_sprite.centered = original_sprite.centered
+		new_sprite.region_enabled = original_sprite.region_enabled
+		new_sprite.region_rect = original_sprite.region_rect
+		new_sprite.position = original_sprite.position
+		duplicated_layer.add_child(new_sprite)
+	else:
+		print("Aucun sprite à copier.")
+
+	# Insertion juste après l’original
+	parallax.add_child(duplicated_layer)
+	parallax.move_child(duplicated_layer, original_index + 1)
+
+	# Gestion du nom
+	var original_name = selected_layer.get_meta("custom_name", "Layer %d" % original_index)
+	var new_name = "%s (copie)" % original_name
+
+	selected_layer = duplicated_layer
+	layer_count += 1
+
+	update_layer_list()
+	layer_list.select(original_index + 1)
+	_update_motion_scale_ui()
+
+# ============ LISTE SYNCHRO ==============
 
 func update_layer_list():
 	layer_list.clear()
 	var layers = parallax.get_children()
-
-	while layer_names.size() < layers.size():
-		layer_names.append("Layer %d" % layer_names.size())
-	while layer_names.size() > layers.size():
-		layer_names.pop_back()
-
 	for i in range(layers.size()):
-		layer_list.add_item(layer_names[i])
+		var name = layers[i].get_meta("custom_name", "Layer %d" % i)
+		layer_list.add_item("%d - %s" % [i, name])

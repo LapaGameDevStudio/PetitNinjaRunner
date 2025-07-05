@@ -76,3 +76,33 @@ layout_mode = 2
 [node name="ConfirmButton" type="Button" parent="UI/PopupRenameLayer/VBoxContainer"]
 layout_mode = 2
 text = "OK"
+
+[node name="MotionScaleX" type="SpinBox" parent="UI"]
+offset_left = 200.0
+offset_top = -1.0
+offset_right = 286.563
+offset_bottom = 30.0
+max_value = 5.0
+step = 0.1
+value = 1.0
+
+[node name="MotionScaleY" type="SpinBox" parent="UI"]
+anchors_preset = -1
+anchor_left = 0.174
+anchor_right = 0.174
+offset_left = -0.448013
+offset_top = 30.0
+offset_right = 86.1145
+offset_bottom = 61.0
+max_value = 5.0
+step = 0.1
+value = 1.0
+
+[node name="DuplicateLayerButton" type="Button" parent="UI"]
+anchors_preset = -1
+anchor_left = 0.265
+anchor_right = 0.265
+offset_left = -0.280029
+offset_right = 131.72
+offset_bottom = 31.0
+text = "Dupliquer Layer"
