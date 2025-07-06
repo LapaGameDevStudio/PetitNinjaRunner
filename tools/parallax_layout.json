@@ -1,0 +1,134 @@
+[
+	{
+		"motion_scale": [
+			0.0,
+			1.0
+		],
+		"name": "SUN",
+		"position": [
+			630.0,
+			30.0
+		],
+		"texture_path": "res://Assets/Sprites/BackGround/fuji_v2/Fuju v9.png"
+	},
+	{
+		"motion_scale": [
+			0.0,
+			1.0
+		],
+		"name": "FUJI",
+		"position": [
+			590.0,
+			110.0
+		],
+		"texture_path": "res://Assets/Sprites/BackGround/fuji_v2/Fuju v8.png"
+	},
+	{
+		"motion_scale": [
+			0.0500000007450581,
+			1.0
+		],
+		"name": "FAR CLOUDS",
+		"position": [
+			860.0,
+			10.0
+		],
+		"texture_path": "res://Assets/Sprites/BackGround/fuji_v2/Fuju v11.png"
+	},
+	{
+		"motion_scale": [
+			0.100000001490116,
+			1.0
+		],
+		"name": "FAR CLD2",
+		"position": [
+			320.0,
+			80.0
+		],
+		"texture_path": "res://Assets/Sprites/BackGround/fuji_v2/Fuju v4.png"
+	},
+	{
+		"motion_scale": [
+			0.100000001490116,
+			1.0
+		],
+		"name": "FAR CLD3",
+		"position": [
+			1320.0,
+			80.0
+		],
+		"texture_path": "res://Assets/Sprites/BackGround/fuji_v2/Fuju v4.png"
+	},
+	{
+		"motion_scale": [
+			0.150000005960464,
+			1.0
+		],
+		"name": "FAR MOUNTAINS1",
+		"position": [
+			210.0,
+			110.0
+		],
+		"texture_path": "res://Assets/Sprites/BackGround/fuji_v2/Fuju v6.png"
+	},
+	{
+		"motion_scale": [
+			0.150000005960464,
+			1.0
+		],
+		"name": "FAR MT2",
+		"position": [
+			1220.0,
+			100.0
+		],
+		"texture_path": "res://Assets/Sprites/BackGround/fuji_v2/Fuju v6.png"
+	},
+	{
+		"motion_scale": [
+			0.200000002980232,
+			1.0
+		],
+		"name": "FAR GRD",
+		"position": [
+			-120.0,
+			230.0
+		],
+		"texture_path": "res://Assets/Sprites/BackGround/fuji_v2/Fuju v5.png"
+	},
+	{
+		"motion_scale": [
+			0.200000002980232,
+			1.0
+		],
+		"name": "FAR GRD2",
+		"position": [
+			890.0,
+			230.0
+		],
+		"texture_path": "res://Assets/Sprites/BackGround/fuji_v2/Fuju v5.png"
+	},
+	{
+		"motion_scale": [
+			0.400000005960464,
+			1.0
+		],
+		"name": "NEAR GRD1",
+		"position": [
+			-210.0,
+			270.0
+		],
+		"texture_path": "res://Assets/Sprites/BackGround/fuji_v2/Fuju v3.png"
+	},
+	{
+		"motion_scale": [
+			0.400000005960464,
+			1.0
+		],
+		"name": "NEAR GRD",
+		"position": [
+			790.0,
+			290.0
+		],
+		"texture_path": "res://Assets/Sprites/BackGround/fuji_v2/Fuju v2.png"
+	}
+]

@@ -5,6 +5,9 @@ extends Node2D
 @onready var add_layer_button := $UI/AddLayerButton
 @onready var texture_picker := $UI/TexturePicker
 @onready var layer_list := $UI/LayerList
+@onready var save_button := $UI/SaveButton
+@onready var load_button := $UI/LoadButton
+
 var layer_names := []
 var layer_count := 0
 
@@ -25,7 +28,8 @@ func _ready():
 	$UI/MotionScaleX.value_changed.connect(_on_motion_scale_x_changed)
 	$UI/MotionScaleY.value_changed.connect(_on_motion_scale_y_changed)
 	$UI/DuplicateLayerButton.pressed.connect(_on_DuplicateLayerButton_pressed)
-
+	$UI/SaveButton.pressed.connect(_on_save_button_pressed)
+	$UI/LoadButton.pressed.connect(_on_load_button_pressed)
 	update_layer_list()
 
 
@@ -56,33 +60,38 @@ func _process(delta):
 		camera.zoom *= 0.9
 	if Input.is_action_just_pressed("zoom_out"):
 		camera.zoom *= 1.1
+	if Input.is_action_just_pressed("reset_camera"):
+		camera.position = Vector2.ZERO
+		camera.zoom = Vector2.ONE
 
 
 func _on_add_layer_pressed():
 	texture_picker.popup_centered()
 
-
 func _on_TexturePicker_file_selected(path):
 	var texture = load(path)
 	if texture:
+		# Create parallax layer
 		var layer = ParallaxLayer.new()
 		var sprite = Sprite2D.new()
 		sprite.texture = texture
 		sprite.centered = true
 		sprite.position = Vector2.ZERO
-		sprite.region_enabled = true
-		var screen_size = get_viewport().size
-		sprite.region_rect = Rect2(Vector2.ZERO, screen_size * 2)
 		layer.add_child(sprite)
-		layer.motion_scale = Vector2(0.4 + parallax.get_child_count() * 0.2, 1)
-		layer.set_meta("custom_name", "Layer %d" % parallax.get_child_count())
+		layer.motion_scale = Vector2(0.0 + 0.05 * layer_count, 1)
+		layer.set("motion_mirroring", Vector2(2048, 0))
+		#layer.mirroring = Vector2(1080, 0)  # Répète tous les 1080px horizontalement
+		layer.set_meta("custom_name", "Layer %d" % layer_count)  # <-- stocke le nom ici
+		#layer.mirroring = texture.get_size()
+		#layer.set("mirroring", texture.get_size())
 
+		# Add parallax layer
 		parallax.add_child(layer)
+		layer_count += 1
 		selected_layer = layer
 		update_layer_list()
-		layer_list.select(parallax.get_children().find(layer))
+		layer_list.select(layer_count - 1)
 		_update_motion_scale_ui()
-
 
 func _on_RemoveLayerButton_pressed():
 	if selected_layer and parallax.has_node(selected_layer.get_path()):
@@ -226,3 +235,92 @@ func update_layer_list():
 	for i in range(layers.size()):
 		var name = layers[i].get_meta("custom_name", "Layer %d" % i)
 		layer_list.add_item("%d - %s" % [i, name])
+
+# ============ Save in json =============
+
+func save_layout_to_file(path: String):
+	var layers_data = []
+	for layer in parallax.get_children():
+		if not (layer is ParallaxLayer):
+			continue
+		var sprite = layer.get_child(0)
+		if not (sprite is Sprite2D):
+			continue
+
+		var layer_info = {
+			"name": layer.get_meta("custom_name", ""),
+			"motion_scale": [layer.motion_scale.x, layer.motion_scale.y],
+			"motion_mirroring": [layer.motion_mirroring.x, layer.motion_mirroring.y],
+			"position": [sprite.position.x, sprite.position.y],
+			"texture_path": sprite.texture.resource_path
+		}
+		layers_data.append(layer_info)
+
+	var file = FileAccess.open(path, FileAccess.WRITE)
+	file.store_string(JSON.stringify(layers_data, "\t"))
+	file.close()
+	print("Layout saved to:", path)
+
+
+# ============ Load from json =============
+
+func load_layout_from_file(path: String):
+	if not FileAccess.file_exists(path):
+		print("Le fichier n'existe pas :", path)
+		return
+
+	var file = FileAccess.open(path, FileAccess.READ)
+	var content = file.get_as_text()
+	file.close()
+
+	var data = JSON.parse_string(content)
+	if typeof(data) != TYPE_ARRAY:
+		print("Le fichier JSON n'est pas un tableau.")
+		return
+
+	# Supprime les layers existants
+	for child in parallax.get_children():
+		child.queue_free()
+
+	for layer_data in data:
+		if typeof(layer_data) != TYPE_DICTIONARY:
+			continue
+
+		var texture_path = layer_data.get("texture_path", "")
+		var texture = load(texture_path)
+		if not texture:
+			print("Impossible de charger la texture :", texture_path)
+			continue
+
+		var layer = ParallaxLayer.new()
+		var sprite = Sprite2D.new()
+		sprite.texture = texture
+		sprite.centered = true
+
+		# Position
+		var pos = layer_data.get("position", [0, 0])
+		if typeof(pos) == TYPE_ARRAY and pos.size() == 2:
+			sprite.position = Vector2(pos[0], pos[1])
+		else:
+			sprite.position = Vector2.ZERO
+
+		# Motion Scale
+		var motion = layer_data.get("motion_scale", [0, 1])
+		layer.motion_scale = Vector2(motion[0], motion[1])
+
+		# Motion Mirroring
+		var mirror = layer_data.get("motion_mirroring", [0, 0])
+		layer.motion_mirroring = Vector2(mirror[0], mirror[1])
+
+		layer.set_meta("custom_name", layer_data.get("name", "Layer"))
+		layer.add_child(sprite)
+		parallax.add_child(layer)
+
+	update_layer_list()
+	print("Layout chargé depuis :", path)
+
+
+func _on_load_button_pressed():
+	load_layout_from_file("res://tools/parallax_layout.json")
+func _on_save_button_pressed():
+	save_layout_to_file("res://tools/parallax_layout.json")

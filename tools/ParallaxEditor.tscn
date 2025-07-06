@@ -1,32 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://c608ncaeioheo"]
+[gd_scene load_steps=2 format=3 uid="uid://c608ncaeioheo"]
 
 [ext_resource type="Script" uid="uid://cmmkeb5lyplnp" path="res://tools/ParallaxEditor.gd" id="1_n2im3"]
-[ext_resource type="Texture2D" uid="uid://d3asl52f26eql" path="res://Assets/freepik_assistant_1751205091425.png" id="2_xqdu2"]
 
 [node name="ParallaxEditor" type="Node2D"]
 script = ExtResource("1_n2im3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource("2_xqdu2")
-
 [node name="UI" type="CanvasLayer" parent="."]
-
-[node name="AddLayerButton" type="Button" parent="UI"]
-offset_right = 86.0
-offset_bottom = 31.0
-text = "Add Layer"
-
-[node name="RemoveLayerButton" type="Button" parent="UI"]
-offset_top = 31.0
-offset_right = 145.0
-offset_bottom = 62.0
-text = "Remove layer"
 
 [node name="TexturePicker" type="FileDialog" parent="UI"]
 title = "Open a File"
@@ -34,31 +18,102 @@ position = Vector2i(0, 36)
 ok_button_text = "Open"
 file_mode = 0
 
+[node name="AddLayerButton" type="Button" parent="UI"]
+offset_right = 86.0
+offset_bottom = 31.0
+scale = Vector2(1, 1.03058)
+text = "Add Layer"
+
+[node name="RemoveLayerButton" type="Button" parent="UI"]
+offset_left = 3.2236
+offset_top = 65.5218
+offset_right = 148.224
+offset_bottom = 96.5218
+text = "Remove layer"
+
 [node name="MoveLayerUpButton" type="Button" parent="UI"]
-offset_top = 61.0
-offset_right = 22.0
-offset_bottom = 92.0
+offset_left = 981.56
+offset_top = 8.09453
+offset_right = 1003.56
+offset_bottom = 39.0945
+scale = Vector2(1.28248, 1.06216)
+size_flags_horizontal = 8
+size_flags_vertical = 0
 text = "▲"
 
 [node name="MoveLayerDownButton" type="Button" parent="UI"]
-offset_top = 91.0
-offset_right = 22.0
-offset_bottom = 122.0
+offset_left = 981.56
+offset_top = 44.2942
+offset_right = 1003.56
+offset_bottom = 75.2942
+scale = Vector2(1.2881, 1.04724)
 text = "▼"
 
+[node name="RenameLayerButton" type="Button" parent="UI"]
+offset_left = 3.2236
+offset_top = 101.885
+offset_right = 118.224
+offset_bottom = 132.885
+text = "Rename layer"
+
+[node name="DuplicateLayerButton" type="Button" parent="UI"]
+anchors_preset = -1
+anchor_left = 0.265
+anchor_right = 0.265
+offset_left = -304.751
+offset_top = 33.2617
+offset_right = -172.751
+offset_bottom = 64.2617
+scale = Vector2(1.06709, 0.990027)
+text = "Dupliquer Layer"
+
+[node name="LoadButton" type="Button" parent="UI"]
+offset_left = 349.458
+offset_top = 2.79185
+offset_right = 395.458
+offset_bottom = 33.7919
+scale = Vector2(1.00855, 1)
+text = "📁
+"
+
+[node name="SaveButton" type="Button" parent="UI"]
+offset_left = 302.727
+offset_top = 1.65793
+offset_right = 346.727
+offset_bottom = 32.6579
+text = "🗃️"
+
+[node name="MotionScaleX" type="SpinBox" parent="UI"]
+offset_left = 200.0
+offset_top = -1.0
+offset_right = 286.563
+offset_bottom = 30.0
+max_value = 5.0
+step = 0.05
+value = 0.05
+
+[node name="MotionScaleY" type="SpinBox" parent="UI"]
+anchors_preset = -1
+anchor_left = 0.174
+anchor_right = 0.174
+offset_left = -0.448013
+offset_top = 30.0
+offset_right = 86.1145
+offset_bottom = 61.0
+scale = Vector2(1, 1.00368)
+max_value = 5.0
+step = 0.1
+value = 1.0
+
 [node name="LayerList" type="ItemList" parent="UI"]
-offset_left = 1.0
-offset_top = 119.0
-offset_right = 31.0
-offset_bottom = 159.0
+offset_left = 1046.61
+offset_top = 0.606293
+offset_right = 1054.61
+offset_bottom = 8.60629
+size_flags_horizontal = 8
+size_flags_vertical = 0
 auto_width = true
 auto_height = true
-
-[node name="RenameLayerButton" type="Button" parent="UI"]
-offset_left = 85.0
-offset_right = 200.0
-offset_bottom = 31.0
-text = "Rename layer"
 
 [node name="PopupRenameLayer" type="PopupPanel" parent="UI"]
 size = Vector2i(132, 100)
@@ -76,33 +131,3 @@ layout_mode = 2
 [node name="ConfirmButton" type="Button" parent="UI/PopupRenameLayer/VBoxContainer"]
 layout_mode = 2
 text = "OK"
-
-[node name="MotionScaleX" type="SpinBox" parent="UI"]
-offset_left = 200.0
-offset_top = -1.0
-offset_right = 286.563
-offset_bottom = 30.0
-max_value = 5.0
-step = 0.1
-value = 1.0
-
-[node name="MotionScaleY" type="SpinBox" parent="UI"]
-anchors_preset = -1
-anchor_left = 0.174
-anchor_right = 0.174
-offset_left = -0.448013
-offset_top = 30.0
-offset_right = 86.1145
-offset_bottom = 61.0
-max_value = 5.0
-step = 0.1
-value = 1.0
-
-[node name="DuplicateLayerButton" type="Button" parent="UI"]
-anchors_preset = -1
-anchor_left = 0.265
-anchor_right = 0.265
-offset_left = -0.280029
-offset_right = 131.72
-offset_bottom = 31.0
-text = "Dupliquer Layer"
