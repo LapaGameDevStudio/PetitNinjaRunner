@@ -1,0 +1,98 @@
+[
+	{
+		"motion_mirroring": [
+			3000.0,
+			0.0
+		],
+		"motion_scale": [
+			0.0,
+			1.0
+		],
+		"name": "Layer 0",
+		"position": [
+			760.0,
+			-70.0
+		],
+		"texture_path": "res://Assets/Sprites/BackGround/fuji_v3/sun.png"
+	},
+	{
+		"motion_mirroring": [
+			3000.0,
+			0.0
+		],
+		"motion_scale": [
+			0.0,
+			1.0
+		],
+		"name": "Layer 1",
+		"position": [
+			750.0,
+			-60.0
+		],
+		"texture_path": "res://Assets/Sprites/BackGround/fuji_v3/fuji.png"
+	},
+	{
+		"motion_mirroring": [
+			1024.0,
+			0.0
+		],
+		"motion_scale": [
+			0.0,
+			1.0
+		],
+		"name": "Layer 2",
+		"position": [
+			420.0,
+			70.0
+		],
+		"texture_path": "res://Assets/Sprites/BackGround/fuji_v3/far_mountains.png"
+	},
+	{
+		"motion_mirroring": [
+			3060.0,
+			0.0
+		],
+		"motion_scale": [
+			0.150000005960464,
+			1.0
+		],
+		"name": "Layer 3",
+		"position": [
+			760.0,
+			210.0
+		],
+		"texture_path": "res://Assets/Sprites/BackGround/fuji_v3/far_ground.png"
+	},
+	{
+		"motion_mirroring": [
+			3060.0,
+			0.0
+		],
+		"motion_scale": [
+			0.150000005960464,
+			1.0
+		],
+		"name": "Layer 3",
+		"position": [
+			1780.0,
+			220.0
+		],
+		"texture_path": "res://Assets/Sprites/BackGround/fuji_v3/far_ground.png"
+	},
+	{
+		"motion_mirroring": [
+			3060.0,
+			0.0
+		],
+		"motion_scale": [
+			0.150000005960464,
+			1.0
+		],
+		"name": "Layer 0",
+		"position": [
+			-260.0,
+			220.0
+		],
+		"texture_path": "res://Assets/Sprites/BackGround/fuji_v3/far_ground.png"
+	}
+]

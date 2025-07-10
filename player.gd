@@ -5,7 +5,7 @@ const SPEED = 300.0
 var PROTECTED = false
 signal game_over
 var is_dead = false
-@export var max_health: int = 100
+@export var max_health: int = 10000
 @onready var camera := $Camera2D  # adapte le chemin si besoin
 var previous_direction := 0
 var direction_hold_time := 0.0

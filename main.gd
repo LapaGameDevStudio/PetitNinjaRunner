@@ -1,9 +1,13 @@
 extends Node2D
 @onready var game_over_scene = preload("res://GameOver.tscn")
-var game_over_instance: Node = null
 @onready var score_label = $CanvasLayer/ScoreLabel
 @onready var health_bar = $CanvasLayer/ProgressBar
 @onready var player = get_node("Player")  # adapte le chemin
+@onready var parallax := $ParallaxBackground
+@onready var mirror_x_spin := $UI/VBoxContainer/MirrorXSpinBox
+@onready var mirror_y_spin := $UI/VBoxContainer/MirrorYSpinBox
+
+var game_over_instance: Node = null
 var score := 0
 var score_timer := 0.0
 var is_game_over := false
@@ -30,7 +34,9 @@ func _ready():
 	update_health_bar(100)
 	player.connect("game_over", Callable(self, "_on_game_over"))
 	player.connect("health_changed", Callable(self, "_on_health_changed"))
-
+	# ✅ Charge le layout JSON du parallax
+	load_parallax_layout("res://tools/parallax_layout.json")
+	
 func _process(delta):
 	if not is_game_over:
 		score_timer += delta
@@ -77,3 +83,49 @@ func update_health_bar(value):
 		fill_style.bg_color = Color("ffaa00")  # orange
 	else:
 		fill_style.bg_color = Color("ff0000")  # rouge
+
+func load_parallax_layout(path: String):
+	if not FileAccess.file_exists(path):
+		print("Fichier JSON introuvable :", path)
+		return
+
+	var file = FileAccess.open(path, FileAccess.READ)
+	var content = file.get_as_text()
+	file.close()
+
+	var data = JSON.parse_string(content)
+	if typeof(data) != TYPE_ARRAY:
+		print("Le fichier n'est pas un tableau JSON valide.")
+		return
+
+	for child in parallax.get_children():
+		child.queue_free()
+
+	for layer_data in data:
+		if typeof(layer_data) != TYPE_DICTIONARY:
+			continue
+
+		var texture_path = layer_data.get("texture_path", "")
+		var texture = load(texture_path)
+		if not texture:
+			print("Échec chargement texture :", texture_path)
+			continue
+
+		var layer = ParallaxLayer.new()
+		var sprite = Sprite2D.new()
+		sprite.texture = texture
+		sprite.centered = true
+
+		var pos = layer_data.get("position", [0, 0])
+		sprite.position = Vector2(pos[0], pos[1])
+
+		var scale = layer_data.get("motion_scale", [0, 1])
+		layer.motion_scale = Vector2(scale[0], scale[1])
+
+		var mirror = layer_data.get("motion_mirroring", [0, 0])
+		layer.motion_mirroring = Vector2(mirror[0], mirror[1])
+
+		layer.add_child(sprite)
+		parallax.add_child(layer)
+
+	print("✅ Parallax layout chargé depuis :", path)
