@@ -30,8 +30,10 @@ func _ready():
 	$UI/DuplicateLayerButton.pressed.connect(_on_DuplicateLayerButton_pressed)
 	$UI/SaveButton.pressed.connect(_on_save_button_pressed)
 	$UI/LoadButton.pressed.connect(_on_load_button_pressed)
-	update_layer_list()
+	$UI/VBoxContainer/MirrorXSpinBox.value_changed.connect(_on_mirror_x_changed)
+	$UI/VBoxContainer/MirrorYSpinBox.value_changed.connect(_on_mirror_y_changed)
 
+	update_layer_list()
 
 func _process(delta):
 	var speed = 500
@@ -79,11 +81,10 @@ func _on_TexturePicker_file_selected(path):
 		sprite.position = Vector2.ZERO
 		layer.add_child(sprite)
 		layer.motion_scale = Vector2(0.0 + 0.05 * layer_count, 1)
-		layer.set("motion_mirroring", Vector2(2048, 0))
-		#layer.mirroring = Vector2(1080, 0)  # Répète tous les 1080px horizontalement
+		#layer.set("motion_mirroring", Vector2(2048, 0))
+		#layer.motion_mirroring = Vector2(1080, 0)  # Répète tous les 1080px horizontalement
+		layer.motion_mirroring = Vector2(texture.get_size().x, 0)
 		layer.set_meta("custom_name", "Layer %d" % layer_count)  # <-- stocke le nom ici
-		#layer.mirroring = texture.get_size()
-		#layer.set("mirroring", texture.get_size())
 
 		# Add parallax layer
 		parallax.add_child(layer)
@@ -147,12 +148,20 @@ func _on_motion_scale_y_changed(value):
 		selected_layer.motion_scale.y = value
 		print("motion_scale.y set to ", value)
 
+func _on_mirror_x_changed(value):
+	if selected_layer:
+		selected_layer.motion_mirroring.x = value
+
+func _on_mirror_y_changed(value):
+	if selected_layer:
+		selected_layer.motion_mirroring.y = value
 
 func _update_motion_scale_ui():
 	if selected_layer:
 		$UI/MotionScaleX.value = selected_layer.motion_scale.x
 		$UI/MotionScaleY.value = selected_layer.motion_scale.y
-
+		$UI/VBoxContainer/MirrorXSpinBox.value = selected_layer.motion_mirroring.x
+		$UI/VBoxContainer/MirrorYSpinBox.value = selected_layer.motion_mirroring.y
 
 # ============ RENOMMAGE ==============
 

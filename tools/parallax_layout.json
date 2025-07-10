@@ -1,134 +1,98 @@
 [
 	{
+		"motion_mirroring": [
+			3000.0,
+			0.0
+		],
 		"motion_scale": [
 			0.0,
 			1.0
 		],
-		"name": "SUN",
+		"name": "Layer 0",
 		"position": [
-			630.0,
-			30.0
+			760.0,
+			-70.0
 		],
-		"texture_path": "res://Assets/Sprites/BackGround/fuji_v2/Fuju v9.png"
+		"texture_path": "res://Assets/Sprites/BackGround/fuji_v3/sun.png"
 	},
 	{
+		"motion_mirroring": [
+			3000.0,
+			0.0
+		],
 		"motion_scale": [
 			0.0,
 			1.0
 		],
-		"name": "FUJI",
+		"name": "Layer 1",
 		"position": [
-			590.0,
-			110.0
+			750.0,
+			-60.0
 		],
-		"texture_path": "res://Assets/Sprites/BackGround/fuji_v2/Fuju v8.png"
+		"texture_path": "res://Assets/Sprites/BackGround/fuji_v3/fuji.png"
 	},
 	{
+		"motion_mirroring": [
+			1024.0,
+			0.0
+		],
 		"motion_scale": [
-			0.0500000007450581,
+			0.0,
 			1.0
 		],
-		"name": "FAR CLOUDS",
+		"name": "Layer 2",
 		"position": [
-			860.0,
-			10.0
+			420.0,
+			70.0
 		],
-		"texture_path": "res://Assets/Sprites/BackGround/fuji_v2/Fuju v11.png"
+		"texture_path": "res://Assets/Sprites/BackGround/fuji_v3/far_mountains.png"
 	},
 	{
-		"motion_scale": [
-			0.100000001490116,
-			1.0
+		"motion_mirroring": [
+			3060.0,
+			0.0
 		],
-		"name": "FAR CLD2",
-		"position": [
-			320.0,
-			80.0
-		],
-		"texture_path": "res://Assets/Sprites/BackGround/fuji_v2/Fuju v4.png"
-	},
-	{
-		"motion_scale": [
-			0.100000001490116,
-			1.0
-		],
-		"name": "FAR CLD3",
-		"position": [
-			1320.0,
-			80.0
-		],
-		"texture_path": "res://Assets/Sprites/BackGround/fuji_v2/Fuju v4.png"
-	},
-	{
 		"motion_scale": [
 			0.150000005960464,
 			1.0
 		],
-		"name": "FAR MOUNTAINS1",
+		"name": "Layer 3",
 		"position": [
-			210.0,
-			110.0
+			760.0,
+			210.0
 		],
-		"texture_path": "res://Assets/Sprites/BackGround/fuji_v2/Fuju v6.png"
+		"texture_path": "res://Assets/Sprites/BackGround/fuji_v3/far_ground.png"
 	},
 	{
+		"motion_mirroring": [
+			3060.0,
+			0.0
+		],
 		"motion_scale": [
 			0.150000005960464,
 			1.0
 		],
-		"name": "FAR MT2",
+		"name": "Layer 3",
 		"position": [
-			1220.0,
-			100.0
+			1780.0,
+			220.0
 		],
-		"texture_path": "res://Assets/Sprites/BackGround/fuji_v2/Fuju v6.png"
+		"texture_path": "res://Assets/Sprites/BackGround/fuji_v3/far_ground.png"
 	},
 	{
+		"motion_mirroring": [
+			3060.0,
+			0.0
+		],
 		"motion_scale": [
-			0.200000002980232,
+			0.150000005960464,
 			1.0
 		],
-		"name": "FAR GRD",
+		"name": "Layer 0",
 		"position": [
-			-120.0,
-			230.0
+			-260.0,
+			220.0
 		],
-		"texture_path": "res://Assets/Sprites/BackGround/fuji_v2/Fuju v5.png"
-	},
-	{
-		"motion_scale": [
-			0.200000002980232,
-			1.0
-		],
-		"name": "FAR GRD2",
-		"position": [
-			890.0,
-			230.0
-		],
-		"texture_path": "res://Assets/Sprites/BackGround/fuji_v2/Fuju v5.png"
-	},
-	{
-		"motion_scale": [
-			0.400000005960464,
-			1.0
-		],
-		"name": "NEAR GRD1",
-		"position": [
-			-210.0,
-			270.0
-		],
-		"texture_path": "res://Assets/Sprites/BackGround/fuji_v2/Fuju v3.png"
-	},
-	{
-		"motion_scale": [
-			0.400000005960464,
-			1.0
-		],
-		"name": "NEAR GRD",
-		"position": [
-			790.0,
-			290.0
-		],
-		"texture_path": "res://Assets/Sprites/BackGround/fuji_v2/Fuju v2.png"
+		"texture_path": "res://Assets/Sprites/BackGround/fuji_v3/far_ground.png"
 	}
 ]

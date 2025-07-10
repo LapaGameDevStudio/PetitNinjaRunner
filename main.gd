@@ -1,11 +1,13 @@
 extends Node2D
 @onready var game_over_scene = preload("res://GameOver.tscn")
-var game_over_instance: Node = null
 @onready var score_label = $CanvasLayer/ScoreLabel
 @onready var health_bar = $CanvasLayer/ProgressBar
 @onready var player = get_node("Player")  # adapte le chemin
 @onready var parallax := $ParallaxBackground
+@onready var mirror_x_spin := $UI/VBoxContainer/MirrorXSpinBox
+@onready var mirror_y_spin := $UI/VBoxContainer/MirrorYSpinBox
 
+var game_over_instance: Node = null
 var score := 0
 var score_timer := 0.0
 var is_game_over := false

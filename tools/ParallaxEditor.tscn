@@ -131,3 +131,22 @@ layout_mode = 2
 [node name="ConfirmButton" type="Button" parent="UI/PopupRenameLayer/VBoxContainer"]
 layout_mode = 2
 text = "OK"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+anchors_preset = -1
+anchor_left = 0.365
+anchor_right = 0.365
+offset_left = -0.0490723
+offset_top = -0.114182
+offset_right = 85.9509
+offset_bottom = 65.8858
+
+[node name="MirrorXSpinBox" type="SpinBox" parent="UI/VBoxContainer"]
+layout_mode = 2
+max_value = 10000.0
+suffix = "px"
+
+[node name="MirrorYSpinBox" type="SpinBox" parent="UI/VBoxContainer"]
+layout_mode = 2
+max_value = 10000.0
+suffix = "px"
