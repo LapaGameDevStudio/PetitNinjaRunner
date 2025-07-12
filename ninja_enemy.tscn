@@ -1,8 +1,8 @@
 [gd_scene load_steps=29 format=3 uid="uid://c56ooy4ljaili"]
 
-[ext_resource type="Texture2D" uid="uid://dyologhrp6x06" path="res://Assets/Sprites/Enemy/Samurai_Archer/Shot.png" id="1_c0qd7"]
+[ext_resource type="Texture2D" uid="uid://bx7y2ycomkdac" path="res://Assets/Sprites/Enemy/Samurai_Archer/Shot.png" id="1_c0qd7"]
 [ext_resource type="Script" uid="uid://dssd1hocjhbqe" path="res://ninja_enemy.gd" id="1_ljjlk"]
-[ext_resource type="Texture2D" uid="uid://skmjbnx0yydl" path="res://Assets/Sprites/Enemy/Samurai_Archer/Idle.png" id="2_ljjlk"]
+[ext_resource type="Texture2D" uid="uid://dixldfxi1i75b" path="res://Assets/Sprites/Enemy/Samurai_Archer/Idle.png" id="2_ljjlk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5mj5k"]
 atlas = ExtResource("1_c0qd7")
@@ -188,8 +188,9 @@ script = ExtResource("1_ljjlk")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -30)
 sprite_frames = SubResource("SpriteFrames_fbevd")
-animation = &"IDLE"
-frame_progress = 0.0971815
+animation = &"ATTACK"
+frame = 3
+frame_progress = 0.842742
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)

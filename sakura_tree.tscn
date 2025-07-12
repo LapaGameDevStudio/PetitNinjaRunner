@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ch178q1h1b8ku"]
 
 [ext_resource type="Script" uid="uid://cogw2dvxwfjix" path="res://sakura_tree.gd" id="1_3o1te"]
-[ext_resource type="Texture2D" uid="uid://bre4vfhbu2q0c" path="res://Assets/freepik_assistant_1751205091425.png" id="1_wbxrb"]
+[ext_resource type="Texture2D" uid="uid://d3asl52f26eql" path="res://Assets/freepik_assistant_1751205091425.png" id="1_wbxrb"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_5cbfx"]
 a = Vector2(100, 377)
