@@ -1,14 +1,14 @@
 [gd_scene load_steps=34 format=3 uid="uid://tja65cdbtieb"]
 
 [ext_resource type="Script" uid="uid://cb56fhvev7ydq" path="res://player.gd" id="1_b26j0"]
-[ext_resource type="Texture2D" uid="uid://bvy5d7fhbkdcu" path="res://Assets/Sprites/Player/Samurai/Dead.png" id="2_n7ghd"]
-[ext_resource type="Texture2D" uid="uid://crw3r7p8ox1dg" path="res://Assets/Sprites/Player/Samurai/Idle.png" id="3_nvl01"]
-[ext_resource type="Texture2D" uid="uid://dm4ceeqj0v88c" path="res://Assets/Sprites/Player/Samurai/Jump.png" id="4_ivps1"]
-[ext_resource type="Texture2D" uid="uid://5ke2kj4u3v5i" path="res://Assets/Sprites/Player/Samurai/Protection.png" id="5_n7ghd"]
-[ext_resource type="Texture2D" uid="uid://bg8rr8msiynpl" path="res://Assets/Sprites/Player/Samurai/Run.png" id="5_urp6f"]
-[ext_resource type="AudioStream" uid="uid://6x018hys6aaa" path="res://Assets/Sounds/jump sound/cartoon-jump-6462.mp3" id="6_bwjto"]
-[ext_resource type="AudioStream" uid="uid://6n3j3hcngic0" path="res://Assets/Sounds/GameOver_Sound/080047_lose_funny_retro_video-game-80925.mp3" id="7_606se"]
-[ext_resource type="AudioStream" uid="uid://d1bqx1oufyo3w" path="res://Assets/Sounds/Hurt/ough-47202.mp3" id="8_u1c27"]
+[ext_resource type="Texture2D" uid="uid://cn1bd4lkurock" path="res://Assets/Sprites/Player/Samurai/Dead.png" id="2_n7ghd"]
+[ext_resource type="Texture2D" uid="uid://cydvy5py7ubmc" path="res://Assets/Sprites/Player/Samurai/Idle.png" id="3_nvl01"]
+[ext_resource type="Texture2D" uid="uid://bvuxurin8hnwc" path="res://Assets/Sprites/Player/Samurai/Jump.png" id="4_ivps1"]
+[ext_resource type="Texture2D" uid="uid://bb2gihh3tix8i" path="res://Assets/Sprites/Player/Samurai/Protection.png" id="5_n7ghd"]
+[ext_resource type="Texture2D" uid="uid://ckraer8onbwcl" path="res://Assets/Sprites/Player/Samurai/Run.png" id="5_urp6f"]
+[ext_resource type="AudioStream" uid="uid://biv7tyxjgdrpr" path="res://Assets/Sounds/jump sound/cartoon-jump-6462.mp3" id="6_bwjto"]
+[ext_resource type="AudioStream" uid="uid://df4psnnvkybn5" path="res://Assets/Sounds/GameOver_Sound/080047_lose_funny_retro_video-game-80925.mp3" id="7_606se"]
+[ext_resource type="AudioStream" uid="uid://dwnlsaf1y2m5d" path="res://Assets/Sounds/Hurt/ough-47202.mp3" id="8_u1c27"]
 [ext_resource type="Script" uid="uid://b753x4kfttdfm" path="res://camera_2d.gd" id="9_op7ga"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q13i1"]
@@ -200,8 +200,8 @@ shape = SubResource("RectangleShape2D_q13i1")
 position = Vector2(-2.51837, -5.02287)
 scale = Vector2(0.859949, 0.89251)
 sprite_frames = SubResource("SpriteFrames_pylmc")
-animation = &"PROTECT"
-frame_progress = 0.8398
+animation = &"RUNNING"
+frame_progress = 0.155321
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_bwjto")
@@ -213,6 +213,7 @@ stream = ExtResource("7_606se")
 [node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-8, 0)
 stream = ExtResource("8_u1c27")
+volume_db = -21.357
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -108)
